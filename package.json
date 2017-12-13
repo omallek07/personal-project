@@ -4,8 +4,8 @@
   "description": "Reviews books",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "start-dev": "webpack -w &amp; nodemon server/server.js"
+    "start": "node start",
+    "start-dev": "webpack -w &amp; nodemon server/start.js"
   },
   "author": "Kevin O'Malley",
   "license": "ISC",
@@ -14,15 +14,24 @@
     "express": "^4.16.2",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
+    "pg": "^7.4.0",
+    "pg-hstore": "^2.3.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.28.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.0",
     "webpack": "^3.10.0"
   }
 }
