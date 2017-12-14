@@ -4,6 +4,7 @@ const db = require('../index');
 const Books = require('./books');
 const Authors = require('./authors');
 const Genres = require('./genres');
+const Users = require('./users');
 
 
 Authors.hasMany(Books, {
@@ -20,5 +21,6 @@ module.exports = {
 	db,
 	Books,
   Authors,
-  Genres
+  Genres,
+  Users
 };

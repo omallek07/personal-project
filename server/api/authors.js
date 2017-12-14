@@ -1,13 +1,53 @@
+const { Authors } = require('../db/models');
+const router = require('express').Router();
 
-// const router = require('express').Router();
+// Get all Authors at api/authors
+router.get('/', (req, res, next) => {
+  Authors.findAll()
+  .then(allAuthors => {
+    res.json(allAuthors);
+  })
+  .catch(next);
+})
 
-// // matches GET requests to /api/puppies/
-// router.get('/', function (req, res, next) { /* etc */});
-// // matches POST requests to /api/puppies/
-// router.post('/', function (req, res, next) { /* etc */});
-// // matches PUT requests to /api/puppies/:puppyId
-// router.put('/:authorId', function (req, res, next) { /* etc */});
-// // matches DELTE requests to /api/puppies/:puppyId
-// router.delete('/:authorId', function (req, res, next) { /* etc */});
+// Create new author at /api/authors
+router.post('/', (req, res, next) => {
+  Authors.create(req.body)
+    .then(newAuthor => {
+     res.status(201).json(newAuthor)
+    })
+    .catch(err => { console.log(err) });
+});
 
-// module.exports = router;
+// Get author by ID at api/authors
+router.get('/:authorId', (req, res, next) => {
+  Authors.findById(req.params.authorId)
+  .then(author => {
+    res.json(author);
+  })
+  .catch(next);
+})
+
+// Update author's details
+router.put('/:authorId', (req, res, next) => {
+  Authors.update(req.body, {
+    where: {
+    id: req.params.authorId
+    }
+  })
+  .then(updatedAuthor => {
+    res.json(updatedAuthor);
+  })
+  .catch(next);
+})
+
+// DELETE /api/author
+router.delete('/:authorId', (req, res, next) => {
+  const id = req.params.authorId;
+
+  Authors.destroy({ where: { id } })
+    .then(() => res.status(204).end())
+    .catch(next);
+});
+
+module.exports = router;

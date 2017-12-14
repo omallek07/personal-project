@@ -1,0 +1,33 @@
+#masterRoot {
+  display: flex;
+  flex-direction: column;
+}
+
+#mainRoot {
+  display: flex;
+  flex-direction: row;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  background-color: lightblue;
+  margin: auto;
+}
+
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 75px;
+  height: 90vh;
+  margin: left;
+  background-color: lightgreen;
+}
+
+.mainDiv {
+  width: 100vw;
+  background-color: lightgray;
+}
