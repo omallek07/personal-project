@@ -1,4 +1,4 @@
-const db = require('./server/db');
+const db = require('./server/db/index');
 const {Books, Authors, Genres} = require('./server/db/models');
 
 const books = [

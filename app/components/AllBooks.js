@@ -12,7 +12,6 @@ class allBooks extends Component {
 
   componentDidMount () {
     this.props.fetchBooks();
-    this.props.fetchAuthors();
   }
 
   deleteBookHandler (id) {

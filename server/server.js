@@ -22,11 +22,10 @@ app.use(morgan('dev'));
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dbStore = new SequelizeStore({ db: db });
 
-// sync so that our session table gets created
-dbStore.sync();
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'a wildly insecure secret',
+  store: dbStore,
   resave: false,
   saveUninitialized: false
 }));
@@ -44,15 +43,19 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   User.findById(id)
-    .then(user => done(null, user))
-    .catch(done);
+  .then(user => done(null, user))
+  .catch(done);
 });
+
+// sync so that our session table gets created
+dbStore.sync();
+
+// auth and api routes
+app.use('/auth', require('./auth'))
+app.use('/api', require('./api'))
 
 // Static Middleware
 app.use(express.static(path.join(__dirname, '../public')));
-
-// API Routes
-app.use('/api', require('./api'));
 
 
 app.get('*', (req, res) => {

@@ -1,13 +1,9 @@
 const router = require('express').Router();
 
-router.use('/login', require('./login'));
-router.use('/signup', require('./signup'));
-router.use('/me', require('./me'));
-router.use('/logout', require('./logout'));
-
 router.use('/authors', require('./authors'));
 router.use('/books', require('./books'));
 router.use('/genres', require('./genres'));
+router.use('/users', require('./users'));
 
 //Handles API route requests that do not exist
 router.use(function (req, res, next) {
