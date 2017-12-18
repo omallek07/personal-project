@@ -1,9 +1,9 @@
-const { Genres } = require('../db/models');
+const { Genres, Books } = require('../db/models');
 const router = require('express').Router();
 
 // Get all Genres at api/Genres
 router.get('/', (req, res, next) => {
-  Genres.findAll()
+  Genres.findAll({include: Books})
   .then(allGenres => {
     res.json(allGenres);
   })

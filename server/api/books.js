@@ -1,11 +1,12 @@
-const { Books } = require('../db/models');
+const { Books, Authors, Genres } = require('../db/models');
 const router = require('express').Router();
 
 // Get all Books at api/Books
 router.get('/', (req, res, next) => {
-  Books.findAll()
+  Books.findAll({include: [Authors, Genres]
+  })
   .then(allBooks => {
-    res.json(allBooks);
+    return res.json(allBooks);
   })
   .catch(next);
 })

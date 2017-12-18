@@ -28,13 +28,14 @@ class Routes extends Component {
               isLoggedIn &&
                 <Switch>
                   {/* Routes placed here are only available after logging in */}
+                  <Route exact path="/" component={Home} />
                   <Route path="/home" component={Home} />
                   <Route path="/allBooks" component={AllBooks} />
                   <Route path="/allAuthors" component={AllAuthors} />
                   <Route path="/allGenres" component={AllGenres} />
-                  <Route path="/books/:bookId" component={SingleBook} />
-                  <Route path="/authors/:authorId" component={SingleAuthor} />
-                  <Route path="/genres/:genreId" component={SingleGenre} />
+                  <Route exact path="/books/:bookId" component={SingleBook} />
+                  <Route exact path="/authors/:authorId" component={SingleAuthor} />
+                  <Route exact path="/genres/:genreId" component={SingleGenre} />
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}

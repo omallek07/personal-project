@@ -19,30 +19,33 @@ class allBooks extends Component {
     this.props.fetchBooks();
   }
 
+
   render () {
-  let books = this.props.books;
+  let {books} = this.props;
+  // const filterAuthor = (authors, book) => {authors.filter(author => author.id === book.authorId)}
   return (
-    <div className="mainDiv">
+    <div className="AllBooksDiv">
       <h1 className="title">All Books</h1>
-        <Link to="/addCampus">
+        <Link to="/addBook">
           <button className="button">Add New Book</button>
         </Link>
-      <ul className="campusList">
+      <ul>
       {
       books.map(book => {
         return (
-          <div className="campusImg" key={book.id}>
+          <div className="bookDiv" key={book.id}>
             <li key={book.id}>
-            <h3 className="campusName">{book.name}</h3>
+            {book.title}
               <Link to={`/books/${book.id}`} >
                 <img className="urlLink" src={`${book.coverImage}`} />
               </Link>
+            {book.pages}
             <br />
             <button
               className="buttonDelete"
               name="delete"
               onClick={() => (this.deleteBookHandler(book.id))}>
-              Delete Book
+              x
             </button>
             </li>
           </div>
@@ -56,8 +59,8 @@ class allBooks extends Component {
 }
 
 /* --------------- CONTAINER ----------------------- */
-const mapState = ({books, authors}) => ({books, authors});
+const mapState = ({books}) => ({books});
 
-const mapDispatch = { fetchBooks, fetchAuthors, deleteBookDispatcher }
+const mapDispatch = { fetchBooks, deleteBookDispatcher }
 
 export default connect(mapState, mapDispatch)(allBooks);

@@ -31,3 +31,17 @@
   width: 100vw;
   background-color: lightgray;
 }
+
+.AllBooksDiv {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bookDiv {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}

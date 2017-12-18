@@ -13,6 +13,9 @@ Authors.hasMany(Books, {
 	hooks: true
 });
 
+Books.belongsTo(Authors);
+Books.belongsTo(Genres);
+
 Genres.hasMany(Books, {
   foreignKey: 'genreId'
 })

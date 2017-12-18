@@ -6,8 +6,9 @@ import selectedAuthor from './selectedAuthor';
 import selectedBook from './selectedBook';
 import selectedGenre from './selectedGenre';
 import user from './user';
+import search from './search';
 
-const rootReducer = combineReducers({authors, selectedAuthor, books, selectedBook, genres, selectedGenre, user});
+const rootReducer = combineReducers({authors, selectedAuthor, books, selectedBook, genres, selectedGenre, user, search});
 
 export default rootReducer;
 export * from './user'
