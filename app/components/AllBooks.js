@@ -22,19 +22,13 @@ class allBooks extends Component {
 
   render () {
   let {books} = this.props;
-  // const filterAuthor = (authors, book) => {authors.filter(author => author.id === book.authorId)}
   return (
     <div className="AllBooksDiv">
       <h1 className="title">All Books</h1>
-        <Link to="/addBook">
-          <button className="button">Add New Book</button>
-        </Link>
-      <ul>
       {
       books.map(book => {
         return (
           <div className="bookDiv" key={book.id}>
-            <li key={book.id}>
             {book.title}
               <Link to={`/books/${book.id}`} >
                 <img className="urlLink" src={`${book.coverImage}`} />
@@ -47,13 +41,11 @@ class allBooks extends Component {
               onClick={() => (this.deleteBookHandler(book.id))}>
               x
             </button>
-            </li>
-          </div>
+            </div>
           )
         })
       }
-      </ul>
-    </div>
+      </div>
     )
   }
 }

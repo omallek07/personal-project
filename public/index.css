@@ -45,3 +45,12 @@
   flex-direction: row;
   padding: 10px;
 }
+
+.logDiv {
+  width: 50vw;
+  padding: 10px;
+}
+
+.logDiv h1 {
+  text-align: center;
+}

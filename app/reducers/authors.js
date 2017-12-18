@@ -68,15 +68,3 @@ export const editAuthorInfoDispatcher = (id, info) => dispatch => {
   .then(res => dispatch(editAuthorInfo(res.data)))
   .catch(err => console.error(`Updating author: ${info} unsuccesful`, err));
 };
-
-// export const addMultipleBooksToAuthorDispatcher = (authorId, books) => { books.map(book=> {
-//   return (
-//     dispatch => {
-//       axios.put(`/api/books/${book.id}`, authorId)
-//       .then(res => dispatch(editBookInfo(res.data)))
-//       .catch(err => console.error(`Updating book: ${bookId} unsuccesful`, err));
-//       }
-//     )
-//   });
-// }
-

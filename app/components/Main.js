@@ -16,7 +16,7 @@ const Main = (props) => {
   const {children} = props
 
   return (
-    <div id="masterRoot">
+    <div className="ui container">
       <Navbar />
       <div id="mainRoot">
         <Sidebar />
