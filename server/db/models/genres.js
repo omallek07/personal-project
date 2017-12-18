@@ -10,4 +10,4 @@ const Genres = db.define('genres', {
    }
 })
 
-module.exports = Genres;
+// module.exports = Genres;

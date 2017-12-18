@@ -32,4 +32,4 @@ const Authors = db.define('authors', {
   }
 });
 
-module.exports = Authors;
+// module.exports = Authors;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { findBookDispatcher } from '../reducers/search';
+import { addNewBookDispatcher } from '../reducers/books';
 import { Form, Dropdown, Segment } from 'semantic-ui-react';
 import fetch from 'isomorphic-fetch';
 
@@ -16,6 +16,27 @@ class Home extends Component {
     }
     this.onSearchChange = this.onSearchChange.bind(this);
     this.fetchOptions = this.fetchOptions.bind(this);
+    this.onBookSelect = this.onBookSelect.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+  }
+
+  onChange(e, data) {
+    this.setState({query: data.value});
+    this.onBookSelect(this.state.books[data.value])
+  }
+
+  onBookSelect(book) {
+    const bookObj = {
+      id: book.id,
+      title: book.volumeInfo.title,
+      author: book.volumeInfo.authors[0],
+      publishedDate: book.volumeInfo.publishedDate,
+      coverImage: book.volumeInfo.imageLinks.smallThumbnail,
+      description: book.searchInfo.textSnippet
+    }
+    this.props.addNewBookDispatcher(bookObj);
+    console.log('book added!')
   }
 
   onSearchChange(e, data) {
@@ -64,6 +85,7 @@ class Home extends Component {
               onSearchChange={this.onSearchChange}
               options={this.state.options}
               loading={this.state.loading}
+              onChange={this.onChange}
             />
         </Form>
       </Segment>
@@ -74,7 +96,7 @@ class Home extends Component {
   /* --------------- CONTAINER ----------------------- */
 
   const mapState = null;
-  const mapDispatch = {findBookDispatcher};
+  const mapDispatch = { addNewBookDispatcher };
 
   export default connect(mapState, mapDispatch)(Home);
 

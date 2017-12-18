@@ -4,15 +4,27 @@ const db = require('../index');
 const Sequelize = db.Sequelize;
 
 const Books = db.define('books', {
+  id: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    primaryKey: true
+  },
   title: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
       len: {
-        args: [1, 30],
-        msg: 'Name must be between 1 and 30 characters!'
+        args: [1, 100],
+        msg: 'Name must be between 1 and 100 characters!'
       }
     }
+  },
+  author: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  publishedDate: {
+    type: Sequelize.STRING
   },
   coverImage: {
     type: Sequelize.STRING,
@@ -20,17 +32,11 @@ const Books = db.define('books', {
   },
   description: {
     type: Sequelize.TEXT,
-  },
-  pages: {
-    type: Sequelize.INTEGER,
-    validate: {
-      min: 1
-    }
   }
 });
 
 Books.beforeValidate(book => {
-  if (!book.imageUrl) {
+  if (!book.coverImage) {
     book.coverImage = book.defaultValue;
   }
 });
