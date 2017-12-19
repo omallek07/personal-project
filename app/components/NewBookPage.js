@@ -1,0 +1,60 @@
+import React, {Component} from 'react';
+import SearchBookForm from './SearchBookForm';
+import {Segment} from 'semantic-ui-react';
+import BookForm from './BookForm';
+import { addNewBookDispatcher } from '../reducers/books'
+import { connect } from 'react-redux';
+
+
+class NewBookPage extends Component {
+  constructor() {
+    super()
+    this.state = {
+      book: null
+    }
+    this.onBookSelect = this.onBookSelect.bind(this);
+    this.addBook = this.addBook.bind(this);
+  }
+
+  onBookSelect(book) { this.setState({ book })}
+
+  addBook(book) {
+    console.log('book', book)
+    this.props.addNewBookDispatcher(book);
+  }
+
+  // onBookSelect(book) {
+  //   const bookObj = {
+  //     id: book.id,
+  //     title: book.volumeInfo.title,
+  //     author: book.volumeInfo.authors[0],
+  //     publishedDate: book.volumeInfo.publishedDate,
+  //     coverImage: book.volumeInfo.imageLinks.smallThumbnail,
+  //     description: book.searchInfo.textSnippet,
+  //     pageCount: book.volumeInfo.pageCount,
+  //   }
+  //   if (book.volumeInfo.categories[0]) {
+  //     bookObj.category = book.volumeInfo.categories[0]
+  //   }
+  //   this.props.addNewBookDispatcher(bookObj);
+  // }
+
+  render() {
+    return (
+      <Segment>
+        <h1>Add new book to your collection</h1>
+        <SearchBookForm onBookSelect={this.onBookSelect} />
+
+        {this.state.book && <BookForm submit={this.addBook} book={this.state.book} />}
+      </Segment>
+    )
+  }
+}
+
+ /* --------------- CONTAINER ----------------------- */
+
+const mapState = null;
+
+const mapDispatch = ({addNewBookDispatcher});
+
+export default connect(mapState, mapDispatch)(NewBookPage);

@@ -12,3 +12,4 @@ export {default as AllAuthors} from './AllAuthors';
 export {default as SingleAuthor} from './SingleAuthor';
 export {default as SingleBook} from './SingleBook';
 export {default as SingleGenre} from './SingleGenre';
+export {default as NewBookPage} from './NewBookPage';

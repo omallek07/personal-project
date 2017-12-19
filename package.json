@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-eslint": "^8.0.3",
     "body-parser": "^1.18.2",
     "connect-session-sequelize": "^5.1.0",
     "es6-promise": "^4.1.1",

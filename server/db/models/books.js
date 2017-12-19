@@ -32,6 +32,12 @@ const Books = db.define('books', {
   },
   description: {
     type: Sequelize.TEXT,
+  },
+  pageCount: {
+    type: Sequelize.STRING
+  },
+  category: {
+    type: Sequelize.STRING
   }
 });
 
