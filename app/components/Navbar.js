@@ -3,13 +3,20 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../reducers/user'
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon, Header } from 'semantic-ui-react';
 
 const Navbar = (props) => {
   const {handleClick, isLoggedIn} = props
   return (
     <Menu secondary pointing>
-    <Menu.Item position="left">Book Reviewer</Menu.Item>
+      <Menu.Menu>
+        <Menu.Item>
+          <Header as='h2' color={'orange'}>
+            <Icon name="book" size="big" />
+              Book Reviewer
+          </Header>
+        </Menu.Item>
+      </Menu.Menu>
       {
         isLoggedIn
           ? <Menu.Menu position="right">

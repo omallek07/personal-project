@@ -13,15 +13,18 @@ import Sidebar from './Sidebar';
  *  rendered out by the component's `children`.
  */
 const Main = (props) => {
-  const {children} = props
+  const {children, isLoggedIn} = props
 
   return (
     <div className="ui container">
-      <Navbar />
-      <div id="mainRoot">
+    {
+      isLoggedIn
+      ? <div><Navbar />
         <Sidebar />
-        {children}
-      </div>
+        {children}</div>
+      : <div><Navbar />
+        {children}</div>
+    }
     </div>
   )
 }

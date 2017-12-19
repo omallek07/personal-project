@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AddBookCtA from './AddBookCtA';
+import { Divider, Button } from 'semantic-ui-react';
 
 
 const Home = () => {
   return (
-    <div>
+    <div id="homeDiv">
       <AddBookCtA />
     </div>
   )

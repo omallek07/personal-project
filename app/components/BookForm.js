@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button, Grid, Image, Segment } from 'semantic-ui-react';
+import { Form, Button, Grid, Image, Segment, Rating } from 'semantic-ui-react';
 import InlineError from './messages/InlineError';
 
 class BookForm extends Component {
@@ -12,10 +12,11 @@ class BookForm extends Component {
         title: this.props.book.volumeInfo.title,
         author: this.props.book.volumeInfo.authors[0],
         publishedDate: this.props.book.volumeInfo.publishedDate,
-        coverImage: this.props.book.volumeInfo.imageLinks.smallThumbnail,
+        coverImage: this.props.book.volumeInfo.imageLinks.thumbnail,
         description: this.props.book.searchInfo.textSnippet,
         pageCount: this.props.book.volumeInfo.pageCount,
-        category: 'Please label genre'
+        category: this.props.book.volumeInfo.categories,
+        rating: 3
       },
       loading: false,
       errors: {}
@@ -23,6 +24,23 @@ class BookForm extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.validate = this.validate.bind(this);
+    this.onRatingHandler = this.onRatingHandler.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      data: {
+        id: props.book.id,
+        title: props.book.volumeInfo.title,
+        author: props.book.volumeInfo.authors[0],
+        publishedDate: props.book.volumeInfo.publishedDate,
+        coverImage: props.book.volumeInfo.imageLinks.smallThumbnail,
+        description: props.book.searchInfo.textSnippet,
+        pageCount: props.book.volumeInfo.pageCount,
+        category: props.book.volumeInfo.categories,
+        rating: 3
+      }
+    });
   }
 
   onChange(e) {
@@ -31,10 +49,17 @@ class BookForm extends Component {
     this.setState({data})
   }
 
+  onRatingHandler(e, value) {
+    let data = Object.assign({}, this.state.data);
+    data.rating = value.rating;
+    this.setState({data})
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const errors = this.validate(this.state.data);
     this.setState({errors});
+
     if (Object.keys(errors).length === 0) {
       this.setState({loading: true})
       this.props
@@ -52,6 +77,7 @@ class BookForm extends Component {
   }
 
   render () {
+    console.log('cat', this.state.data.category)
     const { errors, data, loading } = this.state;
     return (
       <Segment>
@@ -86,7 +112,7 @@ class BookForm extends Component {
             </Form.Field>
 
             <Form.Field error={!!errors.category}>
-            <label htmlFor="pageCount">Category</label>
+            <label htmlFor="category">Category</label>
             <input
               type="text"
               id="category"
@@ -97,6 +123,20 @@ class BookForm extends Component {
             />
             {errors.category && <InlineError text={errors.category} /> }
           </Form.Field>
+
+          <Form.Field error={!!errors.rating}>
+          <label htmlFor="rating">Rating</label>
+          <Rating
+            icon="star"
+            defaultRating={3}
+            maxRating={5}
+            id="rating"
+            name="rating"
+            value={data.rating}
+            onRate={this.onRatingHandler}
+          />
+          {errors.rating && <InlineError text={errors.rating} /> }
+        </Form.Field>
           </Grid.Column>
 
           <Grid.Column>
@@ -115,16 +155,6 @@ class BookForm extends Component {
 
 BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
-  book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    publishedDate: PropTypes.string.isRequired,
-    coverImage: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    pageCount: PropTypes.string.isRequired,
-    category: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
-  })
 }
 
 export default BookForm;

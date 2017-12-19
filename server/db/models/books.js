@@ -34,16 +34,36 @@ const Books = db.define('books', {
     type: Sequelize.TEXT,
   },
   pageCount: {
-    type: Sequelize.STRING
+    type: Sequelize.INTEGER
   },
   category: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: 'Fiction'
+  },
+  rating: {
+    type: Sequelize.INTEGER,
+    validate: {
+      min: 1,
+      max: 5
+    }
+  }
+});
+
+Books.beforeValidate(book => {
+  if (Array.isArray(book.category)){
+    book.category = book.category[0];
   }
 });
 
 Books.beforeValidate(book => {
   if (!book.coverImage) {
     book.coverImage = book.defaultValue;
+  }
+});
+
+Books.beforeValidate(book => {
+  if (!book.category) {
+    book.category = book.defaultValue;
   }
 });
 

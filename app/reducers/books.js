@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 
 /* ------------ ACTIONS ------------ */
 
@@ -58,7 +59,8 @@ export const deleteBookDispatcher = id => dispatch => {
 export const addNewBookDispatcher = book => dispatch => {
   axios.post('/api/books', book)
   .then(res => {
-    return dispatch(addNewBook(res.data))
+    dispatch(addNewBook(res.data))
+    history.push('/allBooks')
   })
   .catch(err => console.error(`Creating book: ${book} unsuccesful`, err))
 };

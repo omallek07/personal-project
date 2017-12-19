@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBooks, deleteBookDispatcher } from '../reducers/books';
-import { fetchAuthors } from '../reducers/authors';
+import { Grid, Image, Segment, Container} from 'semantic-ui-react';
 
 class allBooks extends Component {
   constructor() {
@@ -23,29 +23,42 @@ class allBooks extends Component {
   render () {
   let {books} = this.props;
   return (
-    <div className="AllBooksDiv">
-      <h1 className="title">All Books</h1>
+      <Grid columns={5} stackable>
+        <Grid.Row>
       {
-      books.map(book => {
-        return (
-          <div className="bookDiv" key={book.id}>
-            {book.title}
-              <Link to={`/books/${book.id}`} >
-                <img className="urlLink" src={`${book.coverImage}`} />
-              </Link>
-            {book.pages}
-            <br />
-            <button
-              className="buttonDelete"
-              name="delete"
-              onClick={() => (this.deleteBookHandler(book.id))}>
-              x
-            </button>
-            </div>
+        books.map(book => {
+          return (
+            <Grid.Column key={book.id}>
+            <Segment color="orange" >
+              <Image size="tiny" rounded src={book.coverImage} float="left" />
+              <Container>
+                <b>Title:</b>{` ${book.title}`}
+              </Container>
+              <Container>
+                <b>Author:</b>{` ${book.author}`}
+              </Container>
+              <Container>
+                <b>Description:</b>{` ${book.description}`}
+              </Container>
+              <Container>
+                <b>Page Count:</b>{` ${book.pageCount}`}
+              </Container>
+              <Container>
+                <b>Published Date:</b>{` ${book.publishedDate}`}
+              </Container>
+              <Container>
+                <b>Genre:</b>{` ${book.category}`}
+              </Container>
+              <Container>
+                <b>Rating:</b>{` ${book.rating}`}
+              </Container>
+              </Segment>
+           </Grid.Column>
           )
         })
       }
-      </div>
+      </Grid.Row>
+      </Grid>
     )
   }
 }
