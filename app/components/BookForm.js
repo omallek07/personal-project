@@ -77,12 +77,11 @@ class BookForm extends Component {
   }
 
   render () {
-    console.log('cat', this.state.data.category)
     const { errors, data, loading } = this.state;
     return (
       <Segment>
         <Form onSubmit={this.onSubmit} loading={loading}>
-          <Grid columns={2} fluid="true" stackable>
+          <Grid columns={2} fluid="true" stackable padded>
             <Grid.Row>
               <Grid.Column>
               <Form.Field error={!!errors.title}>

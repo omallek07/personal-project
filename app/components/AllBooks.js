@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBooks, deleteBookDispatcher } from '../reducers/books';
-import { Grid, Image, Segment, Container} from 'semantic-ui-react';
+import { Grid, Image, Segment, Container, Rating} from 'semantic-ui-react';
 
 class allBooks extends Component {
   constructor() {
@@ -23,37 +23,36 @@ class allBooks extends Component {
   render () {
   let {books} = this.props;
   return (
-      <Grid columns={5} stackable>
-        <Grid.Row>
+      <Grid container columns={5} stackable padded fluid>
+      <Grid.Row>
       {
         books.map(book => {
           return (
-            <Grid.Column key={book.id}>
-            <Segment color="orange" >
-              <Image size="tiny" rounded src={book.coverImage} float="left" />
-              <Container>
-                <b>Title:</b>{` ${book.title}`}
-              </Container>
-              <Container>
-                <b>Author:</b>{` ${book.author}`}
-              </Container>
-              <Container>
-                <b>Description:</b>{` ${book.description}`}
-              </Container>
-              <Container>
-                <b>Page Count:</b>{` ${book.pageCount}`}
-              </Container>
-              <Container>
-                <b>Published Date:</b>{` ${book.publishedDate}`}
-              </Container>
-              <Container>
-                <b>Genre:</b>{` ${book.category}`}
-              </Container>
-              <Container>
-                <b>Rating:</b>{` ${book.rating}`}
-              </Container>
+            <Grid.Column key={book.id} >
+              <Segment color="orange">
+                <Grid>
+                <Grid.Column>
+                  <Grid.Row>
+                    <Container textAlign="center">
+                      <b> {book.title} </b>
+                    </Container>
+                  </Grid.Row>
+                  <Grid.Row>
+                  <Container textAlign="center">
+                  <Rating icon="star" defaultRating={book.rating} maxRating={5} size="mini" />
+                </Container>
+                  </Grid.Row>
+                  <Grid.Row>
+                      <Container>
+                        <Link to={`/books/${book.id}`}>
+                          <Image size="medium" rounded src={book.coverImage} />
+                        </Link>
+                      </Container>
+                  </Grid.Row>
+                  </Grid.Column>
+                </Grid>
               </Segment>
-           </Grid.Column>
+            </Grid.Column>
           )
         })
       }

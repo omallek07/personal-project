@@ -2,35 +2,67 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBookByID } from '../reducers/selectedBook';
+import { Grid, Segment, Container, Image, Button, Rating } from 'semantic-ui-react';
 
 /* -----------    COMPONENT    ----------- */
 
 class singleBook extends Component {
 
-  componentWillMount () {
-    const bookId = Number(this.props.match.params.bookId);
+  componentDidMount () {
+    const bookId = this.props.match.params.bookId;
     this.props.fetchBookByID(bookId)
   }
 
   render () {
-    let { authors } = this.props;
     let book = this.props.selectedBook;
+
     return (
-      <div className="mainDiv">
-        <h1 className="title">{`This book is called ${book.title}`}</h1>
-        <div>
-          <Link className="mainLink" to="/allBooks" >
-            <button className="button">Go Back</button>
-          </Link>
-      </div>
-    </div>
+      <Segment color="orange" >
+        <Grid colums={2} padded divided equal stackable>
+          <Grid.Row>
+            <Grid.Column width={4}>
+              <Image size="large" rounded src={book.coverImage} float="left" />
+            </Grid.Column>
+          <Grid.Column width={8}>
+        <Container>
+          <b>Title:</b>{` ${book.title}`}
+        </Container>
+        <Container>
+          <b>Author:</b>{` ${book.author}`}
+        </Container>
+        <Container>
+          <b>Description:</b>{` ${book.description}`}
+        </Container>
+        <Container>
+          <b>Page Count:</b>{` ${book.pageCount}`}
+        </Container>
+        <Container>
+          <b>Published Date:</b>{` ${book.publishedDate}`}
+        </Container>
+        <Container>
+          <b>Genre:</b>{` ${book.category}`}
+        </Container>
+        <Container>
+          <b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} />
+        </Container>
+        </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column floated="right">
+            <Link className="mainLink" to="/allBooks" >
+              <Button className="button">Go Back</Button>
+            </Link>
+          </Grid.Column>
+        </Grid.Row>
+        </Grid>
+        </Segment>
     )
   }
 }
 
 /* -------------- CONTAINER ------------------- */
 
-const mapState = ({authors, selectedBook}) => ({ selectedBook, authors})
+const mapState = ({selectedBook}) => ({ selectedBook })
 
 const mapDispatch = { fetchBookByID }
 
