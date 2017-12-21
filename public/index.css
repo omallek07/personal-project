@@ -1,3 +1,9 @@
+body {
+  background-color: #f1f1f1;
+  font-size: 15px;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+}
+
 #masterRoot {
   display: flex;
   flex-direction: column;
@@ -58,4 +64,12 @@
 #homeDiv {
   width: 75vw;
   padding: 10px;
+}
+
+.allBooksSeg:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.deleteIcon:hover {
+  color: red;
 }

@@ -5,6 +5,7 @@ import {withRouter, Link} from 'react-router-dom'
 import {logout} from '../reducers/user'
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import ReactHoverObserver from 'react-hover-observer';
 
 /**
  * COMPONENT
@@ -23,7 +24,10 @@ const Main = (props) => {
         <Sidebar />
         {children}</div>
       : <div><Navbar />
-        {children}</div>
+        <ReactHoverObserver>
+          {children}
+        </ReactHoverObserver>
+        </div>
     }
     </div>
   )

@@ -35,8 +35,8 @@ class Routes extends Component {
                   <Route path="/allGenres" component={AllGenres} />
                   <Route exact path="/books/:bookId" component={SingleBook} />
                   <Route exact path="/newBook" component={NewBookPage} />
-                  <Route exact path="/authors/:authorId" component={SingleAuthor} />
-                  <Route exact path="/genres/:genreId" component={SingleGenre} />
+                  <Route exact path="/authors/:authorName" component={SingleAuthor} />
+                  <Route exact path="/genres/:categoryType" component={SingleGenre} />
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}

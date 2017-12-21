@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBooks, deleteBookDispatcher } from '../reducers/books';
-import { Grid, Image, Segment, Container, Rating} from 'semantic-ui-react';
+import { Grid, Image, Segment, Container, Rating, Button, Icon} from 'semantic-ui-react';
+
 
 class allBooks extends Component {
-  constructor() {
+  constructor({isHovering = false}) {
     super()
     this.deleteBookHandler = this.deleteBookHandler.bind(this);
   }
@@ -21,42 +22,37 @@ class allBooks extends Component {
 
 
   render () {
-  let {books} = this.props;
-  return (
-      <Grid container columns={5} stackable padded fluid>
-      <Grid.Row>
-      {
-        books.map(book => {
-          return (
-            <Grid.Column key={book.id} >
-              <Segment color="orange">
-                <Grid>
-                <Grid.Column>
-                  <Grid.Row>
-                    <Container textAlign="center">
-                      <b> {book.title} </b>
-                    </Container>
-                  </Grid.Row>
-                  <Grid.Row>
-                  <Container textAlign="center">
-                  <Rating icon="star" defaultRating={book.rating} maxRating={5} size="mini" />
-                </Container>
-                  </Grid.Row>
-                  <Grid.Row>
-                      <Container>
-                        <Link to={`/books/${book.id}`}>
-                          <Image size="medium" rounded src={book.coverImage} />
-                        </Link>
+    let {books} = this.props;
+    return (
+      <Grid columns={4} stackable stretched>
+        {
+          books.map(book => {
+            return (
+              <Grid.Column key={book.id} >
+                <Segment color="orange" className="allBooksSeg">
+                  <Grid columns={1}>
+                    <Grid.Row>
+                      <Container textAlign="center" fluid>
+                        <b> {book.title} </b>
                       </Container>
-                  </Grid.Row>
-                  </Grid.Column>
-                </Grid>
-              </Segment>
-            </Grid.Column>
-          )
-        })
-      }
-      </Grid.Row>
+                      <Container textAlign="center" fluid>
+                        <Rating icon="star" defaultRating={book.rating} maxRating={5} size="mini" />
+                      </Container>
+                        <Container fluid>
+                          <Link to={`/books/${book.id}`}>
+                            <Image size="small" centered src={book.coverImage} />
+                          </Link>
+                        </Container>
+                        <Container textAlign="right">
+                        <Icon className="deleteIcon" name="delete" onClick={() => this.deleteBookHandler(book.id)} size="large" />
+                        </Container>
+                    </Grid.Row>
+                  </Grid>
+                </Segment>
+              </Grid.Column>
+            )
+          })
+        }
       </Grid>
     )
   }

@@ -8,7 +8,6 @@ const ADD_NEW_BOOK = 'ADD_NEW_BOOK';
 const EDIT_BOOK_INFO = 'EDIT_BOOK_INFO';
 const DELETE_BOOK = 'DELETE_BOOK';
 
-
 /* --------- ACTION CREATORS ------------ */
 
 const getAllBooks = books => ({ type: GET_ALL_BOOKS, books })

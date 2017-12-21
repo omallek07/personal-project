@@ -15,10 +15,10 @@ class singleBook extends Component {
 
   render () {
     let book = this.props.selectedBook;
-
+    console.log('props', this.props)
     return (
       <Segment color="orange" >
-        <Grid colums={2} padded divided equal stackable>
+        <Grid columns={2} padded divided equal="true" stackable>
           <Grid.Row>
             <Grid.Column width={4}>
               <Image size="large" rounded src={book.coverImage} float="left" />
@@ -43,12 +43,12 @@ class singleBook extends Component {
           <b>Genre:</b>{` ${book.category}`}
         </Container>
         <Container>
-          <b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} />
+          <b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} disabled />
         </Container>
         </Grid.Column>
         </Grid.Row>
         <Grid.Row>
-          <Grid.Column floated="right">
+          <Grid.Column>
             <Link className="mainLink" to="/allBooks" >
               <Button className="button">Go Back</Button>
             </Link>
