@@ -20,19 +20,3 @@ const Home = () => {
   const mapDispatch = null;
 
   export default connect(mapState, mapDispatch)(Home);
-
-  // <div>
-  //   <Link to="/allBooks">
-  //     <button>Click to see all books</button>
-  //   </Link>
-  // </div>
-  // <div>
-  //   <Link to="/allAuthors">
-  //     <button>Click to see all authors</button>
-  //   </Link>
-  // </div>
-  // <div>
-  //   <Link to="/allGenres">
-  //     <button>Click to see all genres</button>
-  //   </Link>
-  // </div>

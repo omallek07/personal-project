@@ -10,7 +10,7 @@ class allAuthors extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchAuthors()
+    this.props.fetchAuthors(this.props.user.id);
   }
 
   render () {
@@ -39,7 +39,7 @@ class allAuthors extends Component {
 }
 
 /* --------------- CONTAINER ----------------------- */
-const mapState = ({authors}) => {
+const mapState = ({authors, user}) => {
   const authorsList = [];
   const AllAuthors = authors;
   AllAuthors.map((author) => {
@@ -47,7 +47,7 @@ const mapState = ({authors}) => {
       authorsList.push(author.author);
     }
 });
-return { authors: authorsList}
+return { authors: authorsList, user}
 }
 
 const mapDispatch = { fetchAuthors };

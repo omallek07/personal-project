@@ -20,7 +20,7 @@ export default function reducer (book = {}, action) {
 
 /* ------------- DISPATCHERS ------------ */
 export const fetchBookByID = (bookId) => dispatch => {
-  axios.get(`/api/books/${bookId}`)
+  axios.get(`/api/singlebook/${bookId}`)
   .then(res => dispatch(getBookByID(res.data)))
   .catch(err => console.error('Fetching book by ID unsuccessful', err));
 };

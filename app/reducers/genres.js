@@ -41,8 +41,8 @@ export default function reducer (genres = [], action) {
 
 /* ------------- DISPATCHERS ------------ */
 
-export const fetchGenres = () => dispatch => {
-  axios.get('/api/genres')
+export const fetchGenres = (userId) => dispatch => {
+  axios.get(`/api/genres/${userId}`)
   .then(res => dispatch(getAllGenres(res.data)))
   .catch(err => console.error('Fetching genres unsuccessful', err));
 };
@@ -66,5 +66,3 @@ export const addNewGenreDispatcher = genre => dispatch => {
   })
   .catch(err => console.error(`Creating genre: ${genre} unsuccesful`, err))
 };
-
-

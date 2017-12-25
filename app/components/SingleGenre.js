@@ -14,7 +14,8 @@ class singleGenre extends Component {
 
   componentWillMount () {
     const categoryType = this.props.match.params.categoryType;
-    this.props.fetchGenreByType(categoryType)
+    const userId = this.props.user.id;
+    this.props.fetchGenreByType(userId, categoryType)
   }
 
   render () {
@@ -62,7 +63,7 @@ class singleGenre extends Component {
 
 /* -------------- CONTAINER ------------------- */
 
-const mapState = ({selectedGenre}, ownProps) => ({selectedGenre, ownProps})
+const mapState = ({selectedGenre, user}, ownProps) => ({selectedGenre, ownProps, user})
 
 const mapDispatch = { fetchGenreByType }
 

@@ -11,9 +11,9 @@ const Navbar = (props) => {
     <Menu secondary pointing>
       <Menu.Menu>
         <Menu.Item>
-          <Header as='h2' color={'orange'}>
+          <Header as="h2" className="header">
             <Icon name="book" size="big" />
-              Book Reviewer
+              MyBooks
           </Header>
         </Menu.Item>
       </Menu.Menu>

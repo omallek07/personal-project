@@ -1,5 +1,5 @@
 body {
-  background-color: #f1f1f1;
+  background-color: #ECECEA;
   font-size: 15px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
 }
@@ -12,25 +12,6 @@ body {
 #mainRoot {
   display: flex;
   flex-direction: row;
-}
-
-#navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100vw;
-  height: 10vh;
-  background-color: lightblue;
-  margin: auto;
-}
-
-#sidebar {
-  display: flex;
-  flex-direction: column;
-  width: 75px;
-  height: 100vh;
-  margin: left;
-  background-color: lightgreen;
 }
 
 .mainDiv {
@@ -72,4 +53,12 @@ body {
 
 .deleteIcon:hover {
   color: red;
+}
+
+.ui.plus.circle {
+  color: #D9853B;
+}
+
+.ui.header {
+  color: #558C89;
 }

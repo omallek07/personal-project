@@ -1,5 +1,8 @@
 const router = require('express').Router();
 
+router.use('/singlebook', require('./singlebook'));
+router.use('/singleauthor', require('./singleauthor'));
+router.use('/singlegenre', require('./singlegenre'));
 router.use('/authors', require('./authors'));
 router.use('/books', require('./books'));
 router.use('/genres', require('./genres'));

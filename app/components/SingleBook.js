@@ -15,7 +15,6 @@ class singleBook extends Component {
 
   render () {
     let book = this.props.selectedBook;
-    console.log('props', this.props)
     return (
       <Segment color="orange" >
         <Grid columns={2} padded divided equal="true" stackable>

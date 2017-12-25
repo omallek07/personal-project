@@ -13,7 +13,8 @@ class singleAuthor extends Component {
 
   componentWillMount () {
     const authorName = this.props.match.params.authorName;
-    this.props.fetchAuthorByName(authorName)
+    const userId = this.props.user.id;
+    this.props.fetchAuthorByName(userId, authorName);
   }
 
   render () {
@@ -61,7 +62,7 @@ class singleAuthor extends Component {
 
 /* -------------- CONTAINER ------------------- */
 
-const mapState = ({selectedAuthor}, ownProps) => ({selectedAuthor, ownProps})
+const mapState = ({selectedAuthor, user}, ownProps) => ({selectedAuthor, ownProps, user})
 
 const mapDispatch = { fetchAuthorByName }
 

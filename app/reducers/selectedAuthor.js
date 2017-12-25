@@ -19,8 +19,8 @@ export default function reducer (author = {}, action) {
 }
 
 /* ------------- DISPATCHERS ------------ */
-export const fetchAuthorByName = (authorName) => dispatch => {
-  axios.get(`/api/authors/${authorName}`)
+export const fetchAuthorByName = (userId, authorName) => dispatch => {
+  axios.get(`/api/singleauthor/${userId}/${authorName}`)
   .then(res => dispatch(getAuthorByName(res.data)))
   .catch(err => console.error('Fetching author by name unsuccessful', err));
 };

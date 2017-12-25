@@ -7,7 +7,7 @@ import {Container, Segment} from 'semantic-ui-react';
 class allGenres extends Component {
 
   componentWillMount () {
-    this.props.fetchGenres()
+    this.props.fetchGenres(this.props.user.id);
   }
 
 
@@ -38,7 +38,7 @@ class allGenres extends Component {
 }
 
 /* --------------- CONTAINER ----------------------- */
-const mapState = ({genres}) => {
+const mapState = ({genres, user}) => {
     const genreList = [];
     const allGenres = genres;
     allGenres.map(genre => {
@@ -46,7 +46,7 @@ const mapState = ({genres}) => {
         genreList.push(genre.category);
       }
   });
-  return { genres: genreList}
+  return { genres: genreList, user}
 }
 
 const mapDispatch = { fetchGenres };

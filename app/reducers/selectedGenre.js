@@ -19,8 +19,8 @@ export default function reducer (genre = {}, action) {
 }
 
 /* ------------- DISPATCHERS ------------ */
-export const fetchGenreByType = (categoryType) => dispatch => {
-  axios.get(`/api/genres/${categoryType}`)
+export const fetchGenreByType = (userId, categoryType) => dispatch => {
+  axios.get(`/api/singlegenre/${userId}/${categoryType}`)
   .then(res => dispatch(getGenreByType(res.data)))
   .catch(err => console.error('Fetching genre by type unsuccessful', err));
 };

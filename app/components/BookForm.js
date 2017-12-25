@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button, Grid, Image, Segment, Rating } from 'semantic-ui-react';
 import InlineError from './messages/InlineError';
+import { connect } from 'react-redux';
 
 class BookForm extends Component {
   constructor(props) {
@@ -13,10 +14,11 @@ class BookForm extends Component {
         author: this.props.book.volumeInfo.authors[0],
         publishedDate: this.props.book.volumeInfo.publishedDate,
         coverImage: this.props.book.volumeInfo.imageLinks.thumbnail,
-        description: this.props.book.searchInfo.textSnippet,
+        description: this.props.book.volumeInfo.description || this.props.book.searchInfo.textSnippet,
         pageCount: this.props.book.volumeInfo.pageCount,
         category: this.props.book.volumeInfo.categories,
-        rating: 3
+        rating: 3,
+        userId: this.props.user
       },
       loading: false,
       errors: {}
@@ -156,4 +158,12 @@ BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
 }
 
-export default BookForm;
+
+/* --------------- CONTAINER ----------------------- */
+
+const mapState = ({user}) => ({user: user.id});
+
+const mapDispatch = null;
+
+export default connect(mapState, mapDispatch)(BookForm);
+

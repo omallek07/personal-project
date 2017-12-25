@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBooks, deleteBookDispatcher } from '../reducers/books';
-import { Grid, Image, Segment, Container, Rating, Button, Icon} from 'semantic-ui-react';
+import { Grid, Image, Segment, Container, Rating, Icon} from 'semantic-ui-react';
 
 
 class allBooks extends Component {
@@ -12,7 +12,7 @@ class allBooks extends Component {
   }
 
   componentDidMount () {
-    this.props.fetchBooks();
+    this.props.fetchBooks(this.props.user.id);
   }
 
   deleteBookHandler (id) {
@@ -36,7 +36,7 @@ class allBooks extends Component {
                         <b> {book.title} </b>
                       </Container>
                       <Container textAlign="center" fluid>
-                        <Rating icon="star" defaultRating={book.rating} maxRating={5} size="mini" />
+                        <Rating icon="star" defaultRating={book.rating} maxRating={5} size="small" />
                       </Container>
                         <Container fluid>
                           <Link to={`/books/${book.id}`}>
@@ -59,7 +59,7 @@ class allBooks extends Component {
 }
 
 /* --------------- CONTAINER ----------------------- */
-const mapState = ({books}) => ({books});
+const mapState = ({books, user}) => ({books, user});
 
 const mapDispatch = { fetchBooks, deleteBookDispatcher }
 

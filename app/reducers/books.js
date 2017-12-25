@@ -43,15 +43,15 @@ export default function reducer (books = [], action) {
 
 /* ------------- DISPATCHERS ------------ */
 
-export const fetchBooks = () => dispatch => {
-  axios.get('/api/books')
+export const fetchBooks = userId => dispatch => {
+  axios.get(`/api/books/${userId}`)
   .then(res => dispatch(getAllBooks(res.data)))
   .catch(err => console.error('Fetching books unsuccessful', err));
 };
 
 export const deleteBookDispatcher = id => dispatch => {
   dispatch(deleteBook(id));
-  axios.delete(`/api/books/${id}`)
+  axios.delete(`/api/singlebook/${id}`)
   .catch(err => console.error(`Removing book: ${id} unsuccesful`, err));
 };
 
@@ -65,7 +65,7 @@ export const addNewBookDispatcher = book => dispatch => {
 };
 
 export const editBookInfoDispatcher = (id, info) => dispatch => {
-  axios.put(`/api/books/${id}`, info)
+  axios.put(`/api/singlebook/${id}`, info)
   .then(res => dispatch(editBookInfo(res.data)))
   .catch(err => console.error(`Updating book: ${info} unsuccesful`, err));
 };

@@ -16,7 +16,8 @@ class NewBookPage extends Component {
     this.addBook = this.addBook.bind(this);
   }
 
-  onBookSelect(book) { this.setState({ book })}
+  onBookSelect(book) {
+    this.setState({ book })}
 
   addBook(book) {
     this.props.addNewBookDispatcher(book);
