@@ -5,9 +5,6 @@ import { fetchAuthors } from '../reducers/authors';
 import {Container, Segment} from 'semantic-ui-react';
 
 class allAuthors extends Component {
-  constructor({isHovering = false}) {
-    super()
-  }
 
   componentDidMount () {
     this.props.fetchAuthors(this.props.user.id);
@@ -15,13 +12,11 @@ class allAuthors extends Component {
 
   render () {
     const {authors} = this.props;
+    const sortedAuthors = authors.sort();
     return (
       <div>
-      <Container textAlign="center">
-        <h1>All Authors</h1>
-      </Container>
       {
-        authors.map((author) => {
+        sortedAuthors.map((author) => {
           return (
             <Link to={`/authors/${author}`} key={author}>
               <Segment color="orange" className="allBooksSeg">

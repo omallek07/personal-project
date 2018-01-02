@@ -7,7 +7,7 @@ const Books = db.define('books', {
   id: {
     type: Sequelize.STRING,
     allowNull: false,
-    primaryKey: true
+    primaryKey: true,
   },
   title: {
     type: Sequelize.STRING,

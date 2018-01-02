@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchBookByID } from '../reducers/selectedBook';
-import { Grid, Segment, Container, Image, Button, Rating } from 'semantic-ui-react';
+import { Grid, Segment, Container, Image, Button, Rating, Header } from 'semantic-ui-react';
 
 /* -----------    COMPONENT    ----------- */
 
@@ -15,6 +15,7 @@ class singleBook extends Component {
 
   render () {
     let book = this.props.selectedBook;
+    console.log('rating', book.rating);
     return (
       <Segment color="orange" >
         <Grid columns={2} padded divided equal="true" stackable>
@@ -42,7 +43,9 @@ class singleBook extends Component {
           <b>Genre:</b>{` ${book.category}`}
         </Container>
         <Container>
-          <b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} disabled />
+          {
+            book.rating && <div><b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} disabled /></div>
+          }
         </Container>
         </Grid.Column>
         </Grid.Row>
@@ -54,7 +57,7 @@ class singleBook extends Component {
           </Grid.Column>
         </Grid.Row>
         </Grid>
-        </Segment>
+      </Segment>
     )
   }
 }

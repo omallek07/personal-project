@@ -8,9 +8,6 @@ import { Segment, Grid, Image, Container, Button } from 'semantic-ui-react';
 /* -----------    COMPONENT    ----------- */
 
 class singleGenre extends Component {
-  constructor({isHovering=false}) {
-    super()
-  }
 
   componentWillMount () {
     const categoryType = this.props.match.params.categoryType;

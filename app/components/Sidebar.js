@@ -16,7 +16,7 @@ export default class Sidebar extends Component {
   render () {
     const { activeItem } = this.state;
     return (
-      <Menu pointing color="blue" inverted>
+      <Menu pointing color="teal">
         <Link to="/newBook">
           <Menu.Item name="addBook" active={activeItem === 'addBook'} onClick={this.handleItemClick}>
               Add Book

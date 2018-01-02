@@ -3,6 +3,10 @@ const Sequelize = require('sequelize')
 const db = require('../index')
 
 const User = db.define('user', {
+  avatar: {
+    type: Sequelize.STRING,
+    defaultValue: 'https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/36-flat-professions-avatars-icons.jpg'
+  },
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -54,3 +58,14 @@ const setSaltAndPassword = user => {
 User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)
 
+// name: {
+//   type: Sequelize.STRING,
+//   unique: true,
+//   allowNull: false,
+//   validate: {
+//     len: {
+//       args: [1, 25],
+//       msg: 'Name must be between 1 and 25 characters!'
+//     }
+//   }
+// },

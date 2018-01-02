@@ -15,9 +15,6 @@ class allGenres extends Component {
     let { genres } = this.props;
     return (
       <div>
-        <Container textAlign="center">
-        <h1>All Genres</h1>
-        </Container>
         {
           genres.map(genre => {
             return (

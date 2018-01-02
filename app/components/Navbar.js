@@ -8,11 +8,11 @@ import { Menu, Icon, Header } from 'semantic-ui-react';
 const Navbar = (props) => {
   const {handleClick, isLoggedIn} = props
   return (
-    <Menu secondary pointing>
+    <Menu primary borderless>
       <Menu.Menu>
         <Menu.Item>
-          <Header as="h2" className="header">
-            <Icon name="book" size="big" />
+          <Header as="h1" color="black">
+            <Icon name="book" size="big" color="brown" />
               MyBooks
           </Header>
         </Menu.Item>

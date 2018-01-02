@@ -9,7 +9,7 @@ class BookForm extends Component {
     super(props)
     this.state = {
       data: {
-        id: this.props.book.id,
+        id: this.props.book.id += this.props.user,
         title: this.props.book.volumeInfo.title,
         author: this.props.book.volumeInfo.authors[0],
         publishedDate: this.props.book.volumeInfo.publishedDate,
