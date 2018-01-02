@@ -14,3 +14,4 @@ export {default as SingleBook} from './SingleBook';
 export {default as SingleGenre} from './SingleGenre';
 export {default as NewBookPage} from './NewBookPage';
 export {default as FunFacts} from './FunFacts';
+export {default as OtherUsers} from './OtherUsers';

@@ -42,6 +42,11 @@ export default class Sidebar extends Component {
             Fun Facts
           </Menu.Item>
         </Link>
+        <Link to="/otherUsers">
+          <Menu.Item name="otherUsers" active={activeItem === 'otherUsers'} onClick={this.handleItemClick}>
+            Friend's Lists
+          </Menu.Item>
+        </Link>
       </Menu>
     )
   }

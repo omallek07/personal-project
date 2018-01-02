@@ -62,3 +62,15 @@ body {
 .ui.header {
   font-style: "Bebas Neue";
 }
+
+.ui.medium.image
+{
+     width: auto;
+     height: 200px;
+}
+
+.ui.cards a {
+  padding: 0;
+  border: 0;
+  margin: 5px;
+}
