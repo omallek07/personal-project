@@ -37,6 +37,11 @@ export default class Sidebar extends Component {
             All Genres
           </Menu.Item>
         </Link>
+        <Link to="/funFacts">
+          <Menu.Item name="funFacts" active={activeItem === 'funFacts'} onClick={this.handleItemClick}>
+            Fun Facts
+          </Menu.Item>
+        </Link>
       </Menu>
     )
   }

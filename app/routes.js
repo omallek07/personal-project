@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage} from './components';
+import {Main, Login, Signup, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts} from './components';
 import {me} from './reducers/user';
 
 /**
@@ -33,6 +33,7 @@ class Routes extends Component {
                   <Route path="/allBooks" component={AllBooks} />
                   <Route path="/allAuthors" component={AllAuthors} />
                   <Route path="/allGenres" component={AllGenres} />
+                  <Route path="/funFacts" component={FunFacts} />
                   <Route exact path="/books/:bookId" component={SingleBook} />
                   <Route exact path="/newBook" component={NewBookPage} />
                   <Route exact path="/authors/:authorName" component={SingleAuthor} />

@@ -44,7 +44,7 @@ class allBooks extends Component {
                   </Popup.Header>
                 <Popup.Content>
                   <Rating icon="star" defaultRating={book.rating} maxRating={5} size="small" disabled />
-                  <Icon className="deleteIcon" name="delete" onClick={() => this.deleteBookHandler(book.id)} size="medium" circular corner />
+                  <Icon className="deleteIcon" name="delete" onClick={() => this.deleteBookHandler(book.id)} size="big" circular corner />
               </Popup.Content>
               </Popup>
             )

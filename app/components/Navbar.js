@@ -8,7 +8,7 @@ import { Menu, Icon, Header } from 'semantic-ui-react';
 const Navbar = (props) => {
   const {handleClick, isLoggedIn} = props
   return (
-    <Menu primary borderless>
+    <Menu primary="true" borderless>
       <Menu.Menu>
         <Menu.Item>
           <Header as="h1" color="black">
