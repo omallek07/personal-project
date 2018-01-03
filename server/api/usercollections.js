@@ -4,7 +4,7 @@ module.exports = router
 
 router.get('/', (req, res, next) => {
   Users.findAll({
-    attributes: ['avatar', 'email'],
+    attributes: ['id', 'avatar', 'email'],
     include: [{model: Books,
     attributes: ['userId', 'title', 'coverImage']
     }]

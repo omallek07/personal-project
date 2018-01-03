@@ -1,11 +1,12 @@
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react';
-import InlineError from '../messages/InlineError';
-import PropTypes from 'prop-types'
+import { Form, Button, Input } from 'semantic-ui-react';
+import InlineError from './messages/InlineError';
+import { connect } from 'react-redux';
+import { auth } from '../reducers/user';
 
 class LoginForm extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       data: {
         email: '',
@@ -15,12 +16,14 @@ class LoginForm extends React.Component {
       errors: {}
     }
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.validate = this.validate.bind(this);
   }
 
   onChange(evt) {
-    this.setState({data: {...this.state.data, [evt.target.name]: evt.target.value}})
+    let data = Object.assign({}, this.state.data);
+    data[evt.target.name] = evt.target.value;
+    this.setState({data})
   }
 
   validate(data) {
@@ -31,20 +34,25 @@ class LoginForm extends React.Component {
   }
 
   onSubmit() {
+    this.setState({loading: true})
+    const formName = 'login';
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if (Object.keys(errors).length === 0) {
-      this.props.submit(this.state.data);
+      this.props.auth(this.state.data, formName)
     }
+    this.setState({loading: false})
   }
 
   render() {
-    const { data, errors } = this.state;
+    const { data, errors} = this.state;
+    const { error } = this.props
+
     return (
-      <Form onSubmit={this.onSubmit}>
+      <Form onSubmit={this.onSubmit} loading={this.state.loading} size="large">
         <Form.Field error={!!errors.email}>
           <label htmlFor="email">Email</label>
-          <input
+          <Input
           type="email"
           id="email"
           name="email"
@@ -56,7 +64,7 @@ class LoginForm extends React.Component {
         </Form.Field>
         <Form.Field error={!!errors.password}>
           <label htmlFor="password">Password</label>
-          <input
+          <Input
           type="password"
           id="password"
           name="password"
@@ -66,12 +74,23 @@ class LoginForm extends React.Component {
           />
           {errors.password && <InlineError text={errors.password} />}
         </Form.Field>
-        <Button primary>Login</Button>
+        <Button>Login</Button>
+        {error && error.response && <InlineError text={error.response.data} />}
       </Form>
     )
   }
 }
 
-LoginForm.propTypes = {
-  submit: PropTypes.func.isRequired
-}
+
+/* --------------- CONTAINER ----------------------- */
+
+const mapLogin = (state) => {
+    return {
+      error: state.user.error
+    }
+  }
+
+const mapDispatch = { auth }
+
+
+export default connect(mapLogin, mapDispatch)(LoginForm)

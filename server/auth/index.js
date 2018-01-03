@@ -3,11 +3,11 @@ const User = require('../db/models/users')
 module.exports = router
 
 router.post('/login', (req, res, next) => {
-  User.findOne({where: {email: req.body.email}})
+  User.findOne({where: {email: req.body.data.email}})
     .then(user => {
       if (!user) {
         res.status(401).send('User not found')
-      } else if (!user.correctPassword(req.body.password)) {
+      } else if (!user.correctPassword(req.body.data.password)) {
         res.status(401).send('Incorrect password')
       } else {
         req.login(user, err => (err ? next(err) : res.json(user)))

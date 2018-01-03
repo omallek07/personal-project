@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, Login, Signup, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers} from './components';
+import {Main, LoginForm, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers, SingleOtherUser} from './components';
 import {me} from './reducers/user';
 
 /**
@@ -22,8 +22,8 @@ class Routes extends Component {
         <Main>
           <Switch>
             {/* Routes placed here are available to all visitors */}
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={LoginForm} />
+
             {
               isLoggedIn &&
                 <Switch>
@@ -35,6 +35,7 @@ class Routes extends Component {
                   <Route path="/allGenres" component={AllGenres} />
                   <Route path="/funFacts" component={FunFacts} />
                   <Route path="/otherUsers" component={OtherUsers} />
+                  <Route path="/singleOtheruser" component={SingleOtherUser} />
                   <Route exact path="/books/:bookId" component={SingleBook} />
                   <Route exact path="/newBook" component={NewBookPage} />
                   <Route exact path="/authors/:authorName" component={SingleAuthor} />
@@ -42,7 +43,7 @@ class Routes extends Component {
                 </Switch>
             }
             {/* Displays our Login component as a fallback */}
-            <Route component={Login} />
+            <Route component={LoginForm} />
           </Switch>
         </Main>
       </Router>

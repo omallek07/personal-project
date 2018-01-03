@@ -13,15 +13,4 @@ router.get('/:userId', (req, res, next) => {
 })
 
 
-// // Get author by name at api/authors
-// router.get('/:authorName', (req, res, next) => {
-//   Books.findAll({ where: {
-//     author: req.params.authorName},
-//   attributes: ['title', 'coverImage', 'id']})
-//   .then(author => {
-//     res.json(author);
-//   })
-//   .catch(next);
-// })
-
 module.exports = router;
