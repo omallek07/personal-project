@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, LoginForm, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers, SingleOtherUser} from './components';
+import {Main, LoginForm, SignupForm, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers, SingleOtherUser} from './components';
 import {me} from './reducers/user';
 
 /**
@@ -23,7 +23,7 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are available to all visitors */}
             <Route path="/login" component={LoginForm} />
-
+            <Route path="/signup" component={SignupForm} />
             {
               isLoggedIn &&
                 <Switch>

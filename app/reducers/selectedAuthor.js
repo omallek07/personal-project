@@ -1,26 +1,26 @@
 import axios from 'axios';
 
 /* ------------ ACTIONS ------------ */
-const GET_AUTHOR_BY_NAME = 'GET_AUTHOR_BY_NAME';
+const GET_AUTHORS_BOOKS = 'GET_AUTHORS_BOOKS';
 
 
 /* --------- ACTION CREATORS ------------ */
-const getAuthorByName = author => ({ type: GET_AUTHOR_BY_NAME, author})
+const getAuthorsBooks = books => ({ type: GET_AUTHORS_BOOKS, books})
 
 
 /* ------------- REDUCER ------------ */
-export default function reducer (author = {}, action) {
+export default function reducer (books = {}, action) {
   switch (action.type) {
-    case GET_AUTHOR_BY_NAME:
-      return action.author;
+    case GET_AUTHORS_BOOKS:
+      return action.books;
     default:
-      return author;
+      return books;
   }
 }
 
 /* ------------- DISPATCHERS ------------ */
-export const fetchAuthorByName = (userId, authorName) => dispatch => {
+export const fetchAuthorsBooks = (userId, authorName) => dispatch => {
   axios.get(`/api/singleauthor/${userId}/${authorName}`)
-  .then(res => dispatch(getAuthorByName(res.data)))
-  .catch(err => console.error('Fetching author by name unsuccessful', err));
+  .then(res => dispatch(getAuthorsBooks(res.data)))
+  .catch(err => console.error('Fetching authors books unsuccessful', err));
 };

@@ -1,61 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchAuthorByName } from '../reducers/selectedAuthor';
-import { Segment, Grid, Image, Container, Button } from 'semantic-ui-react';
+import { fetchAuthorsBooks } from '../reducers/selectedAuthor';
+import { Container, Image, Card } from 'semantic-ui-react';
 
 /* -----------    COMPONENT    ----------- */
 
-class singleAuthor extends Component {
-  constructor({isHovering=false}) {
-    super()
+class SingleAuthor extends Component {
+  constructor(props) {
+    super(props)
   }
 
-  componentWillMount () {
-    const authorName = this.props.match.params.authorName;
+  componentWillReceiveProps () {
+    const authorName = this.props.authorName;
     const userId = this.props.user.id;
-    this.props.fetchAuthorByName(userId, authorName);
+    this.props.fetchAuthorsBooks(userId, authorName);
   }
 
   render () {
-    let authorBooks = this.props.selectedAuthor;
-    const authorName = this.props.match.params.authorName;
-
+    const {selectedAuthor} = this.props;
     return (
-      <Grid>
-        <Grid.Row>
-          <Grid.Column>
-            <Segment textAlign="center">
-              <h1 className="title">{`All books from ${authorName}`}</h1>
-            </Segment>
-          </Grid.Column>
-        </Grid.Row>
-        {
-          authorBooks.length > 0 && authorBooks.map(books => {
-            return (
-              <Grid.Column key={books.title} container width={4} fluid>
-                  <Link to={`/books/${books.id}`}>
-                    <Segment className="allBooksSeg">
-                      <Container textAlign="center">
-                        <b> {books.title} </b>
-                      </Container>
-                      <Image src={books.coverImage} centered />
-                    </Segment>
-                  </Link>
-              </Grid.Column>
-            )
-          })
-        }
-        <Grid.Row>
-          <Grid.Column>
-            <Container>
-              <Link className="mainLink" to="/allAuthors" >
-                <Button>Go Back</Button>
-              </Link>
-          </Container>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+        <Container>
+        <Card>
+        <h1>hello</h1>
+        </Card>
+      </Container>
     )
   }
 }
@@ -64,6 +33,22 @@ class singleAuthor extends Component {
 
 const mapState = ({selectedAuthor, user}, ownProps) => ({selectedAuthor, ownProps, user})
 
-const mapDispatch = { fetchAuthorByName }
+const mapDispatch = { fetchAuthorsBooks }
 
-export default connect(mapState, mapDispatch)(singleAuthor);
+export default connect(mapState, mapDispatch)(SingleAuthor);
+
+// <Card.Group itemsPerRow={4}>
+//         {
+//           selectedAuthor.length && selectedAuthor.map(book => {
+//             return (
+//               <Card key={book.id}>
+//                 <Image src={book.coverImage} />
+//               <Card.Container>
+//                 {book.title}
+//               </Card.Container>
+//               </Card>
+//             )
+//           })
+//         }
+//       </Card.Group>
+

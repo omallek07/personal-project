@@ -3,6 +3,16 @@ const Sequelize = require('sequelize')
 const db = require('../index')
 
 const User = db.define('user', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      len: {
+        args: [1, 20],
+        msg: 'Name must be between 1 and 20 characters!'
+      }
+    }
+  },
   avatar: {
     type: Sequelize.STRING,
     defaultValue: 'https://cms-assets.tutsplus.com/uploads/users/107/posts/25507/image/36-flat-professions-avatars-icons.jpg'
@@ -10,6 +20,11 @@ const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
+    allowNull: false
+  },
+  public: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
     allowNull: false
   },
   password: {

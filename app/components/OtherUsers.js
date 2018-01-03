@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchAllCollections } from '../reducers/userCollections';
-import {Card, Image, Header} from 'semantic-ui-react';
+import {Card, Image, Header, Icon} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class OtherUsers extends Component {
@@ -13,16 +13,19 @@ class OtherUsers extends Component {
   render () {
     const users = this.props.userCollections;
     return (
-      <Card.Group itemsPerRow={4}>
+      <Card.Group itemsPerRow={6}>
       {
         users.map(user => {
           return (
             <Card key={user.id}>
               <Link to={{ pathname: '/singleOtherUser', state: {user} }}>
-              <Image src={user.avatar} />
+              <Image src={user.avatar} size="tiny" circular centered />
               </Link>
               <Card.Content textAlign="center">
-                <Header>{user.email}</Header>
+                <Header>{user.name}</Header>
+                <Card.Meta>
+                  <Icon name="book" icon="tiny" />{` ${user.books.length} Books`}
+                </Card.Meta>
               </Card.Content>
             </Card>
           )

@@ -5,7 +5,7 @@ import { Menu } from 'semantic-ui-react'
 export default class Sidebar extends Component {
   constructor() {
     super()
-    this.state = { activeItem: 'addBook'}
+    this.state = { activeItem: 'home'}
     this.handleItemClick = this.handleItemClick.bind(this)
   }
 
@@ -17,6 +17,11 @@ export default class Sidebar extends Component {
     const { activeItem } = this.state;
     return (
       <Menu pointing color="teal">
+        <Link to="/home">
+          <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleItemClick}>
+              Home
+          </Menu.Item>
+        </Link>
         <Link to="/newBook">
           <Menu.Item name="addBook" active={activeItem === 'addBook'} onClick={this.handleItemClick}>
               Add Book
@@ -24,27 +29,27 @@ export default class Sidebar extends Component {
         </Link>
         <Link to="/allBooks">
           <Menu.Item name="allBooks"  active={activeItem === 'allBooks'} onClick={this.handleItemClick}>
-            All Books
+            My Books
           </Menu.Item>
         </Link>
         <Link to="/allAuthors">
           <Menu.Item name="allAuthors" active={activeItem === 'allAuthors'} onClick={this.handleItemClick}>
-            All Authors
+            My Authors
           </Menu.Item>
         </Link>
         <Link to="/allGenres">
           <Menu.Item name="allGenres" active={activeItem === 'allGenres'} onClick={this.handleItemClick}>
-            All Genres
+            My Genres
+          </Menu.Item>
+        </Link>
+        <Link to="/otherUsers">
+          <Menu.Item name="otherUsers" active={activeItem === 'otherUsers'} onClick={this.handleItemClick}>
+            My Friend's Lists
           </Menu.Item>
         </Link>
         <Link to="/funFacts">
           <Menu.Item name="funFacts" active={activeItem === 'funFacts'} onClick={this.handleItemClick}>
             Fun Facts
-          </Menu.Item>
-        </Link>
-        <Link to="/otherUsers">
-          <Menu.Item name="otherUsers" active={activeItem === 'otherUsers'} onClick={this.handleItemClick}>
-            Friend's Lists
           </Menu.Item>
         </Link>
       </Menu>

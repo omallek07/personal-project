@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {logout} from '../reducers/user'
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import ReactHoverObserver from 'react-hover-observer';
+//import Footer from './Footer';
 
 /**
  * COMPONENT
@@ -20,13 +20,14 @@ const Main = (props) => {
     <div className="ui container">
     {
       isLoggedIn
-      ? <div><Navbar />
-        <Sidebar />
-        {children}</div>
-      : <div><Navbar />
-        <ReactHoverObserver>
+      ? <div>
+          <Navbar />
+          <Sidebar />
           {children}
-        </ReactHoverObserver>
+        </div>
+      : <div>
+          <Navbar />
+          {children}
         </div>
     }
     </div>

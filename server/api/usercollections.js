@@ -3,8 +3,10 @@ const {Users, Books} = require('../db/models')
 module.exports = router
 
 router.get('/', (req, res, next) => {
-  Users.findAll({
-    attributes: ['id', 'avatar', 'email'],
+  Users.findAll({ where: {
+    public: true
+    },
+    attributes: ['id', 'name', 'avatar', 'email'],
     include: [{model: Books,
     attributes: ['userId', 'title', 'coverImage']
     }]

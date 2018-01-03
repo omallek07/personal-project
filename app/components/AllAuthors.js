@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAuthors } from '../reducers/authors';
-import {Container, Segment} from 'semantic-ui-react';
+import {Card, Header, Icon, Container, Dropdown} from 'semantic-ui-react';
+import SingleAuthor from './SingleAuthor';
 
 class allAuthors extends Component {
+  constructor() {
+    super()
+    this.state = {
+      value: ''
+    }
+    this.changeHandler = this.changeHandler.bind(this);
+  }
+
+  changeHandler(e, {value}) {
+    this.setState({value});
+  }
 
   componentDidMount () {
     this.props.fetchAuthors(this.props.user.id);
@@ -14,35 +26,39 @@ class allAuthors extends Component {
     const {authors} = this.props;
     const sortedAuthors = authors.sort();
     return (
-      <div>
-      {
-        sortedAuthors.map((author) => {
-          return (
-            <Link to={`/authors/${author}`} key={author}>
-              <Segment color="orange" className="allBooksSeg">
-                <Container textAlign="center">
-                  {author}
-                </Container>
-              </Segment>
-            </Link>
-          )
-        })
-      }
-      </div>
+      <Container>
+        <Dropdown
+        placeholder="Select Author"
+        fluid
+        selection
+        options={
+          sortedAuthors.map(author => {
+            return {
+              text: author,
+              value: author
+            }
+          })
+        }
+        onChange={this.changeHandler}
+        />
+        <Container>
+          { this.state.value && <SingleAuthor authorName={this.state.value} /> }
+        </Container>
+      </Container>
     )
   }
 }
 
 /* --------------- CONTAINER ----------------------- */
 const mapState = ({authors, user}) => {
-  const authorsList = [];
-  const AllAuthors = authors;
-  AllAuthors.map((author) => {
-    if (!authorsList.includes(author.author)) {
-      authorsList.push(author.author);
+  const authorsArr = authors.map(author => author.author)
+  const filteredAuthors = [];
+  authorsArr.forEach(author => {
+    if (!filteredAuthors.includes(author)) {
+      filteredAuthors.push(author)
     }
-});
-return { authors: authorsList, user}
+  });
+return { authors: filteredAuthors, user}
 }
 
 const mapDispatch = { fetchAuthors };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Input } from 'semantic-ui-react';
+import { Form, Button, Input, Segment } from 'semantic-ui-react';
 import InlineError from './messages/InlineError';
 import { connect } from 'react-redux';
 import { auth } from '../reducers/user';
@@ -49,9 +49,10 @@ class LoginForm extends React.Component {
     const { error } = this.props
 
     return (
-      <Form onSubmit={this.onSubmit} loading={this.state.loading} size="large">
+      <Segment color="orange">
+      <Form onSubmit={this.onSubmit} loading={this.state.loading}>
         <Form.Field error={!!errors.email}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <Input
           type="email"
           id="email"
@@ -63,7 +64,7 @@ class LoginForm extends React.Component {
           {errors.email && <InlineError text={errors.email} />}
         </Form.Field>
         <Form.Field error={!!errors.password}>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <Input
           type="password"
           id="password"
@@ -74,9 +75,10 @@ class LoginForm extends React.Component {
           />
           {errors.password && <InlineError text={errors.password} />}
         </Form.Field>
-        <Button>Login</Button>
+        <Button primary>Login</Button>
         {error && error.response && <InlineError text={error.response.data} />}
       </Form>
+      </Segment>
     )
   }
 }

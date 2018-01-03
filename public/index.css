@@ -65,12 +65,18 @@ body {
 
 .ui.medium.image
 {
-     width: auto;
-     height: 200px;
+  width: 100%;
+  height: 200px;
 }
 
 .ui.cards a {
   padding: 0;
   border: 0;
   margin: 5px;
+}
+
+.ui.menu.footer {
+  position: fixed;
+  bottom: 1vh;
+  padding-top: 10px;
 }
