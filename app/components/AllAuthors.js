@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchAuthors } from '../reducers/authors';
-import {Card, Header, Icon, Container, Dropdown} from 'semantic-ui-react';
+import {Grid, Dropdown, Header} from 'semantic-ui-react';
 import SingleAuthor from './SingleAuthor';
 
 class allAuthors extends Component {
   constructor() {
     super()
     this.state = {
-      value: ''
+      value: '',
+      books: {}
     }
     this.changeHandler = this.changeHandler.bind(this);
   }
@@ -23,28 +23,33 @@ class allAuthors extends Component {
   }
 
   render () {
-    const {authors} = this.props;
-    const sortedAuthors = authors.sort();
+    const {filteredAuthors} = this.props;
+    const sortedAuthors = filteredAuthors.sort();
+
     return (
-      <Container>
-        <Dropdown
-        placeholder="Select Author"
-        fluid
-        selection
-        options={
-          sortedAuthors.map(author => {
-            return {
-              text: author,
-              value: author
-            }
-          })
-        }
-        onChange={this.changeHandler}
-        />
-        <Container>
+      <Grid>
+        <Grid.Column>
+          <Grid.Row>
+            <Dropdown
+              placeholder="Select Author"
+              fluid
+              selection
+              options={
+                sortedAuthors.map(author => {
+                  return {
+                    text: author,
+                    value: author
+                  }
+                })
+              }
+              onChange={this.changeHandler}
+            />
+          </Grid.Row>
+        <Grid.Row>
           { this.state.value && <SingleAuthor authorName={this.state.value} /> }
-        </Container>
-      </Container>
+        </Grid.Row>
+        </Grid.Column>
+        </Grid>
     )
   }
 }
@@ -58,7 +63,7 @@ const mapState = ({authors, user}) => {
       filteredAuthors.push(author)
     }
   });
-return { authors: filteredAuthors, user}
+  return { filteredAuthors: filteredAuthors, user}
 }
 
 const mapDispatch = { fetchAuthors };

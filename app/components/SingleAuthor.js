@@ -11,19 +11,38 @@ class SingleAuthor extends Component {
     super(props)
   }
 
-  componentWillReceiveProps () {
+  componentDidMount () {
     const authorName = this.props.authorName;
     const userId = this.props.user.id;
     this.props.fetchAuthorsBooks(userId, authorName);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.authorName !== this.props.authorName) {
+      const authorName = nextProps.authorName;
+      const userId = this.props.user.id;
+      this.props.fetchAuthorsBooks(userId, authorName);
+    }
   }
 
   render () {
     const {selectedAuthor} = this.props;
     return (
         <Container>
-        <Card>
-        <h1>hello</h1>
-        </Card>
+        <Card.Group itemsPerRow={4}>
+        {
+          selectedAuthor.length && selectedAuthor.map(book => {
+            return (
+              <Card key={book.id}>
+                <Card.Header>
+                  {book.title}
+                </Card.Header>
+                <Image src={book.coverImage} size="small" />
+              </Card>
+            )
+          })
+        }
+        </Card.Group>
       </Container>
     )
   }
