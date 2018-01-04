@@ -23,14 +23,14 @@ class singleBook extends Component {
               <Image size="large" rounded src={book.coverImage} float="left" />
             </Grid.Column>
           <Grid.Column width={12}>
-        <Container>
-          <b>Title:</b>{` ${book.title}`}
+        <Container className="booktitle">
+           {book.title}
         </Container>
-        <Container>
-          <b>Author:</b>{` ${book.author}`}
+        <Container className="authortitle">
+          {book.author}
         </Container>
-        <Container>
-          <b>Description:</b>{` ${book.description}`}
+        <Container className="bookdescription">
+         {book.description}
         </Container>
         <Container>
           <b>Page Count:</b>{` ${book.pageCount}`}

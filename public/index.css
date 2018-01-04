@@ -56,14 +56,15 @@ body {
 }
 
 .ui.header.navHead {
-  color: #ffffff;
-  font-family: 'pacifico';
-  font-size: 3.5em;
+  color: #ffffff!important;
+  font-family: 'pacifico'!important;
+  font-size: 3.5em!important;
+  letter-spacing: 2px!important;
 }
 
 .ui.medium.image {
   width: 100%;
-  height: 200px;
+  height: 210px;
 }
 
 .ui.pointing.menu {
@@ -83,9 +84,23 @@ body {
 }
 
 .ui.cards a {
-  padding: 0;
-  border: 0;
-  margin: 5px;
+  margin: 4px;
+}
+
+.ui.search {
+  font-size: 1.5em;
+}
+
+.ui.seven.cards>.card {
+  background-color: #adb3b9;
+}
+
+.ui.card {
+  background-color: #96858F;
+}
+
+.ui.card a {
+  color: black;
 }
 
 .ui.menu.footer {
@@ -100,11 +115,77 @@ body {
 }
 
 .ui.segment {
-  background-color: #9099a27d;
+  background-color: #adb3b9;
   font-size: 1.2em;
   min-height: 70vh;
 }
 
 .ui.funfacts {
   font-size: 2em;
+}
+
+.ui.card [class*="center aligned"], .ui.cards>.card [class*="center aligned"] {
+  text-align: center;
+  background-color: #adb3b9;
+}
+
+i.orange.icon {
+  color: #ffffff!important;
+}
+
+.ui.card .meta, .ui.cards>.card .meta {
+  font-size: 1.1em;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.ui.card>.content>.header, .ui.cards>.card>.content>.header {
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+}
+
+.ui.form .field>label {
+  font-size: 1.2em;
+}
+
+.ui.form .inline.fields>label {
+  font-size: 1.2em;
+}
+
+.ui.form .inline.field>:first-child, .ui.form .inline.fields .field>:first-child {
+  font-size: 1.2em;
+}
+
+.ui.header {
+  font-size: 2em!important;
+  padding-bottom: 10px!important;
+  margin: 3px!important;
+  font-family: 'scope one'!important;
+}
+
+.ui.container.booktitle {
+  font-size: 2em;
+  padding-top: 0.3em;
+}
+
+.ui.container.authortitle {
+  font-size: 1.3em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+.ui.container.bookdescription {
+  padding-bottom: 0.5em;
+}
+
+.ui.search.dropdown>input.search {
+  background-color: white!important;
+  top: -4px!important;
+}
+
+.ui.search.dropdown>.text {
+  left: 8px!important;
+}
+
+.ui.segment.newbookform {
+  background-color: #c9cdd0!important;
 }

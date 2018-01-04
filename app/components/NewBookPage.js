@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SearchBookForm from './SearchBookForm';
-import {Segment} from 'semantic-ui-react';
+import {Segment, Header} from 'semantic-ui-react';
 import BookForm from './BookForm';
 import { addNewBookDispatcher } from '../reducers/books'
 import { connect } from 'react-redux';
@@ -26,7 +26,7 @@ class NewBookPage extends Component {
   render() {
     return (
       <Segment>
-        <h1>Add new book to your collection</h1>
+        <Header>Add new book to your collection</Header>
         <SearchBookForm onBookSelect={this.onBookSelect} />
 
         {this.state.book && <BookForm submit={this.addBook} book={this.state.book} />}
