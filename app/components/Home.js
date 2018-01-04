@@ -10,7 +10,7 @@ class Home extends Component {
   render() {
     const {user} = this.props;
     return (
-      <Segment>
+      <Segment color="orange">
       <Grid columns={2} divided>
       <Grid.Column>
         <Header>{`Welcome ${user.name}!`}</Header>

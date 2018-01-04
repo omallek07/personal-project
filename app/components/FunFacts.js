@@ -39,13 +39,13 @@ class FunFacts extends Component {
 
     return (
       {averageRating} &&
-      <Segment>
+      <Segment color="orange">
         <List>
-        <List.Item icon="book" content={`You've added ${books.length} books to your collection!`} />
-        <List.Item icon="sticky note" content={`You have read a total of ${totalPages.toLocaleString('en')} pages.`} />
-        <List.Item icon="star" content={`Your average book rating is ${averageRating}.`} />
-        <List.Item icon="user" content={`Your favorite author is ${freqAuthor}.`} />
-        <List.Item icon="tags" content={`Your favorite genre is ${freqGenre}.`} />
+          <List.Item icon="book" content={`You've added ${books.length} books to your collection!`} />
+          <List.Item icon="sticky note" content={`You have read a total of ${totalPages.toLocaleString('en')} pages.`} />
+          <List.Item icon="star" content={`Your average book rating is ${averageRating}.`} />
+          <List.Item icon="user" content={`Your favorite author is ${freqAuthor}.`} />
+          <List.Item icon="tags" content={`Your favorite genre is ${freqGenre}.`} />
         </List>
       </Segment>
     )

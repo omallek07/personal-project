@@ -16,15 +16,15 @@ export default class Sidebar extends Component {
   render () {
     const { activeItem } = this.state;
     return (
-      <Menu pointing color="teal">
+      <Menu pointing color="orange">
         <Link to="/home">
           <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleItemClick}>
-              Home
+            Home
           </Menu.Item>
         </Link>
         <Link to="/newBook">
           <Menu.Item name="addBook" active={activeItem === 'addBook'} onClick={this.handleItemClick}>
-              Add Book
+            Add Book
           </Menu.Item>
         </Link>
         <Link to="/allBooks">

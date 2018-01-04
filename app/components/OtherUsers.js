@@ -17,7 +17,7 @@ class OtherUsers extends Component {
       {
         users.map(user => {
           return (
-            <Card key={user.id}>
+            <Card key={user.id} inverted className="collection">
               <Link to={{ pathname: '/singleOtherUser', state: {user} }}>
               <Image src={user.avatar} size="tiny" circular centered />
               </Link>

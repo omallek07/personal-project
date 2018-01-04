@@ -23,7 +23,7 @@ class allBooks extends Component {
     let {books} = this.props;
 
     return (
-      <Card.Group itemsPerRow={7} stackable>
+      <Card.Group itemsPerRow={7}>
         {
           books.map(book => {
             return (

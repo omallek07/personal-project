@@ -7,7 +7,7 @@ const AddBookCtA = () => (
       <Card.Content textAlign="center">
         <Card.Header>Add new book</Card.Header>
         <Link to="/newBook">
-        <Icon link name="plus circle" size="massive" color="blue" />
+        <Icon link name="plus circle" size="large" />
         </Link>
       </Card.Content>
     </Card>

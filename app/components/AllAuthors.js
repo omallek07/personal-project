@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAuthors } from '../reducers/authors';
-import {Grid, Dropdown, Header} from 'semantic-ui-react';
+import {Grid, Dropdown, Segment} from 'semantic-ui-react';
 import SingleAuthor from './SingleAuthor';
 
 class allAuthors extends Component {
@@ -46,7 +46,11 @@ class allAuthors extends Component {
             />
           </Grid.Row>
         <Grid.Row>
-          { this.state.value && <SingleAuthor authorName={this.state.value} /> }
+          { this.state.value &&
+            <Segment color="orange">
+              <SingleAuthor authorName={this.state.value} />
+            </Segment>
+          }
         </Grid.Row>
         </Grid.Column>
         </Grid>

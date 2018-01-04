@@ -1,5 +1,5 @@
 body {
-  background-color: #ECECEA;
+  background-color: #558C89;
   font-size: 15px;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
 }
@@ -55,12 +55,10 @@ body {
   color: red;
 }
 
-.ui.plus.circle {
+.ui.header.navHead {
   color: #D9853B;
-}
-
-.ui.header {
   font-style: "Bebas Neue";
+  font-size: 2em;
 }
 
 .ui.medium.image
@@ -79,4 +77,21 @@ body {
   position: fixed;
   bottom: 1vh;
   padding-top: 10px;
+}
+
+.ui.menu.navbar {
+  background-color: #ECECEA;
+}
+
+.ui.segment {
+  background-color: #ECECEA;
+  font-size: 1.2em;
+}
+
+.ui.card {
+  background-color: #74AFAD;
+}
+
+.ui.collectionCards.card {
+  background-color: red;
 }
