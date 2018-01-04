@@ -16,13 +16,13 @@ class singleBook extends Component {
   render () {
     let book = this.props.selectedBook;
     return (
-      <Segment color="orange" >
+      <Segment>
         <Grid columns={2} padded divided equal="true" stackable>
           <Grid.Row>
             <Grid.Column width={4}>
               <Image size="large" rounded src={book.coverImage} float="left" />
             </Grid.Column>
-          <Grid.Column width={8}>
+          <Grid.Column width={12}>
         <Container>
           <b>Title:</b>{` ${book.title}`}
         </Container>

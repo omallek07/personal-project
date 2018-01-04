@@ -1,7 +1,7 @@
 body {
-  background-color: #558C89;
-  font-size: 15px;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif
+  background-color: #D5D5D5;
+  font-family: 'vesper libre', serif;
+  font-size: 1.1em;
 }
 
 #masterRoot {
@@ -56,15 +56,30 @@ body {
 }
 
 .ui.header.navHead {
-  color: #D9853B;
-  font-style: "Bebas Neue";
-  font-size: 2em;
+  color: #ffffff;
+  font-family: 'pacifico';
+  font-size: 3.5em;
 }
 
-.ui.medium.image
-{
+.ui.medium.image {
   width: 100%;
   height: 200px;
+}
+
+.ui.pointing.menu {
+  background-color: #96858F;
+  font-size: 1em;
+}
+
+.ui.header>.icon {
+  font-size: 1.4em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: #96858F;
+}
+
+.ui.pointing.menu a {
+  color: #ffffff;
 }
 
 .ui.cards a {
@@ -80,18 +95,16 @@ body {
 }
 
 .ui.menu.navbar {
-  background-color: #ECECEA;
+  background-color: #6D7993;
+  font-size: 1em;
 }
 
 .ui.segment {
-  background-color: #ECECEA;
+  background-color: #9099a27d;
   font-size: 1.2em;
+  min-height: 70vh;
 }
 
-.ui.card {
-  background-color: #74AFAD;
-}
-
-.ui.collectionCards.card {
-  background-color: red;
+.ui.funfacts {
+  font-size: 2em;
 }

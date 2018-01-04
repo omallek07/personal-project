@@ -70,7 +70,7 @@ class SignupForm extends React.Component {
     const { error } = this.props
 
     return (
-      <Segment color="orange">
+      <Segment>
       <Form onSubmit={this.onSubmit} loading={this.state.loading}>
         <Form.Field error={!!errors.name}>
           <label htmlFor="name">Name:</label>
@@ -110,20 +110,20 @@ class SignupForm extends React.Component {
         </Form.Field>
         <Form.Group inline error={!!errors.avatar}>
           <label>Choose Your Avatar:</label>
-          <Form.Field control={Radio} value="/avatars/avatar.png" checked={value === '/avatars/avatar.png'} onChange={this.handleChange} />
             <Image src="/avatars/avatar.png" size="tiny" />
-          <Form.Field control={Radio} value="/avatars/woman.png" checked={value === '/avatars/woman.png'} onChange={this.handleChange} />
+          <Form.Field control={Radio} value="/avatars/avatar.png" checked={value === '/avatars/avatar.png'} onChange={this.handleChange} />
             <Image src="/avatars/woman.png" size="tiny" />
-          <Form.Field control={Radio} value="/avatars/heisenberg.png" checked={value === '/avatars/heisenberg.png'} onChange={this.handleChange} />
+          <Form.Field control={Radio} value="/avatars/woman.png" checked={value === '/avatars/woman.png'} onChange={this.handleChange} />
             <Image src="/avatars/heisenberg.png" size="tiny" />
-          <Form.Field control={Radio} value="/avatars/woman1.png" checked={value === '/avatars/woman1.png'} onChange={this.handleChange} />
+          <Form.Field control={Radio} value="/avatars/heisenberg.png" checked={value === '/avatars/heisenberg.png'} onChange={this.handleChange} />
             <Image src="/avatars/woman1.png" size="tiny" />
+          <Form.Field control={Radio} value="/avatars/woman1.png" checked={value === '/avatars/woman1.png'} onChange={this.handleChange} />
+            <Image src="/avatars/man.png" size="tiny" />
           <Form.Field control={Radio} value="/avatars/man.png" checked={value === '/avatars/man.png'} onChange={this.handleChange} />
-          <Image src="/avatars/man.png" size="tiny" />
-          <Form.Field control={Radio} value="/avatars/woman2.png" checked={value === '/avatars/woman2.png'} onChange={this.handleChange} />
             <Image src="/avatars/woman2.png" size="tiny" />
-          <Form.Field control={Radio} value="/avatars/wood-cutter.png" checked={value === '/avatars/wood-cutter.png'} onChange={this.handleChange} />
+          <Form.Field control={Radio} value="/avatars/woman2.png" checked={value === '/avatars/woman2.png'} onChange={this.handleChange} />
             <Image src="/avatars/wood-cutter.png" size="tiny" />
+          <Form.Field control={Radio} value="/avatars/wood-cutter.png" checked={value === '/avatars/wood-cutter.png'} onChange={this.handleChange} />
           {errors.avatar && <InlineError text={errors.avatar} />}
         </Form.Group>
         <Form.Field inline>

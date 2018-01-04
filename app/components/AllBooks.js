@@ -51,7 +51,7 @@ class allBooks extends Component {
           })
         }
         <Card>
-          <Card.Content textAlign="center">
+          <Card.Content textAlign="center" className="plusCard">
           <Link to="/newBook">
               <Icon link name="plus" size="huge" color="orange" />
           </Link>

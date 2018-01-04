@@ -46,7 +46,7 @@ class SearchBookForm extends Component {
         options.push({
           key: book.id,
           value: book.id,
-          text: book.volumeInfo.title
+          text: `${book.volumeInfo.title} by ${book.volumeInfo.authors[0]}`
         })
       });
       this.setState({ loading: false, options, books: booksHash})

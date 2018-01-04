@@ -39,7 +39,7 @@ class FunFacts extends Component {
 
     return (
       {averageRating} &&
-      <Segment color="orange">
+      <Segment className="funfacts">
         <List>
           <List.Item icon="book" content={`You've added ${books.length} books to your collection!`} />
           <List.Item icon="sticky note" content={`You have read a total of ${totalPages.toLocaleString('en')} pages.`} />

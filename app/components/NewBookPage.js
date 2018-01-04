@@ -25,7 +25,7 @@ class NewBookPage extends Component {
 
   render() {
     return (
-      <Segment color="orange">
+      <Segment>
         <h1>Add new book to your collection</h1>
         <SearchBookForm onBookSelect={this.onBookSelect} />
 

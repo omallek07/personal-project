@@ -12,7 +12,7 @@ const Navbar = (props) => {
       <Menu.Menu>
         <Menu.Item>
           <Header className="navHead">
-            <Icon name="book" size="big" color="white" />
+            <Icon name="book" size="big" />
               MyBooks
           </Header>
         </Menu.Item>

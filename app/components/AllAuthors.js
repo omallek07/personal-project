@@ -47,7 +47,7 @@ class allAuthors extends Component {
           </Grid.Row>
         <Grid.Row>
           { this.state.value &&
-            <Segment color="orange">
+            <Segment>
               <SingleAuthor authorName={this.state.value} />
             </Segment>
           }

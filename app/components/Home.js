@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AddBookCtA from './AddBookCtA';
-import { Grid, Header, Image, Segment } from 'semantic-ui-react';
+import { Grid, Header, Image, Segment, Container } from 'semantic-ui-react';
 import {me} from '../reducers/user';
 
 
@@ -10,14 +10,18 @@ class Home extends Component {
   render() {
     const {user} = this.props;
     return (
-      <Segment color="orange">
+      <Segment>
       <Grid columns={2} divided>
-      <Grid.Column>
-        <Header>{`Welcome ${user.name}!`}</Header>
-        <Image src={user.avatar} floated="left" circular />
+      <Grid.Column width={4}>
+        <Container textAlign="center">
+          <Header>{`Welcome ${user.name}!`}</Header>
+          <Image src={user.avatar} centered />
+        </Container>
       </Grid.Column>
       <Grid.Column>
-        <AddBookCtA />
+        <Container>
+          <AddBookCtA />
+        </Container>
       </Grid.Column>
       </Grid>
       </Segment>

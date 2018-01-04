@@ -3,14 +3,14 @@ import { Card, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const AddBookCtA = () => (
-    <Card className="card" centered onClick={this.isClickedHandler}>
+  <Card>
+    <Link to="/newBook">
       <Card.Content textAlign="center">
         <Card.Header>Add new book</Card.Header>
-        <Link to="/newBook">
-        <Icon link name="plus circle" size="large" />
-        </Link>
+        <Icon name="plus circle" size="large" />
       </Card.Content>
-    </Card>
+    </Link>
+  </Card>
 );
 
 export default AddBookCtA;

@@ -16,13 +16,13 @@ class singleOtherUser extends Component {
 
   render () {
   let {books} = this.props;
-  let userEmail = this.props.location.state.user.name;
+  let userName = this.props.location.state.user.name;
   return (
     <Grid>
       <Grid.Row>
         <Grid.Column>
           <Segment textAlign="center">
-            <h1 className="title">{`${userEmail}'s Collection`}</h1>
+            <h1 className="title">{`${userName}'s Collection`}</h1>
           </Segment>
         </Grid.Column>
       </Grid.Row>

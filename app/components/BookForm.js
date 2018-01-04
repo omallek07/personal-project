@@ -14,7 +14,7 @@ class BookForm extends Component {
         author: this.props.book.volumeInfo.authors[0],
         publishedDate: this.props.book.volumeInfo.publishedDate,
         coverImage: this.props.book.volumeInfo.imageLinks.thumbnail,
-        description: this.props.book.volumeInfo.description ||  this.props.book.searchInfo.textSnippet || null,
+        description: this.props.book.volumeInfo.description || this.props.book.searchInfo.textSnippet || null,
         pageCount: this.props.book.volumeInfo.pageCount,
         category: this.props.book.volumeInfo.categories,
         rating: 3,
@@ -37,7 +37,7 @@ class BookForm extends Component {
         author: props.book.volumeInfo.authors[0],
         publishedDate: props.book.volumeInfo.publishedDate,
         coverImage: props.book.volumeInfo.imageLinks.smallThumbnail,
-        description: props.book.searchInfo.description || this.props.book.searchInfo.textSnippet || null,
+        description: props.book.volumneInfo.description || this.props.book.searchInfo.textSnippet || null,
         pageCount: props.book.volumeInfo.pageCount,
         category: props.book.volumeInfo.categories,
         rating: 3
@@ -145,7 +145,7 @@ class BookForm extends Component {
           </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Button>Save</Button>
+            <Button primary>Save</Button>
           </Grid.Row>
           </Grid>
         </Form>

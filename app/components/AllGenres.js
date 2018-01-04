@@ -47,7 +47,7 @@ class allGenres extends Component {
           </Grid.Row>
         <Grid.Row>
           { this.state.value &&
-            <Segment color="orange">
+            <Segment>
               <SingleGenre genreName={this.state.value} />
             </Segment>
           }

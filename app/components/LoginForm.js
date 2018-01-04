@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
     const { error } = this.props
 
     return (
-      <Segment color="orange">
+      <Segment>
       <Form onSubmit={this.onSubmit} loading={this.state.loading}>
         <Form.Field error={!!errors.email}>
           <label htmlFor="email">Email:</label>

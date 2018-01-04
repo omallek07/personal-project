@@ -16,7 +16,7 @@ export default class Sidebar extends Component {
   render () {
     const { activeItem } = this.state;
     return (
-      <Menu pointing color="orange">
+      <Menu pointing>
         <Link to="/home">
           <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleItemClick}>
             Home
