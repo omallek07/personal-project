@@ -62,6 +62,12 @@ Books.beforeValidate(book => {
 });
 
 Books.beforeValidate(book => {
+  if (!book.description) {
+    book.description = 'The summary is missing.'
+  }
+});
+
+Books.beforeValidate(book => {
   if (!book.category) {
     book.category = book.defaultValue;
   }

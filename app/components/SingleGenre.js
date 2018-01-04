@@ -1,59 +1,59 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchGenreByType } from '../reducers/selectedGenre';
-import { Segment, Grid, Image, Container, Button } from 'semantic-ui-react';
-
+import { fetchGenreBooks } from '../reducers/selectedGenre';
+import { Container, Image, Card, Popup } from 'semantic-ui-react';
 
 /* -----------    COMPONENT    ----------- */
 
-class singleGenre extends Component {
+class SingleGenre extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  componentWillMount () {
-    const categoryType = this.props.match.params.categoryType;
+  componentDidMount () {
+    const genreName = this.props.genreName;
     const userId = this.props.user.id;
-    this.props.fetchGenreByType(userId, categoryType)
+    this.props.fetchGenreBooks(userId, genreName);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.genreName !== this.props.genreName) {
+      const genreName = nextProps.genreName;
+      const userId = this.props.user.id;
+      this.props.fetchGenreBooks(userId, genreName);
+    }
   }
 
   render () {
-    let genreBooks = this.props.selectedGenre;
-    let genre = this.props.match.params.categoryType;
-
-  return (
-    <Grid>
-      <Grid.Row>
-        <Grid.Column>
-          <Segment textAlign="center">
-            <h1 className="title">{`All ${genre} books`}</h1>
-          </Segment>
-        </Grid.Column>
-      </Grid.Row>
-      {
-      genreBooks.length > 0 && genreBooks.map(books => {
-        return (
-          <Grid.Column key={books.title} container width={4} fluid>
-            <Link to={`/books/${books.id}`}>
-              <Segment className="allBooksSeg">
-                <Container textAlign="center">
-                  <b> {books.title} </b>
-                </Container>
-                <Image src={books.coverImage} centered />
-              </Segment>
-            </Link>
-            </Grid.Column>
+    const {selectedGenre} = this.props;
+    return (
+      <Container>
+        <Card.Group itemsPerRow={7}>
+        {
+          selectedGenre.length && selectedGenre.map(book => {
+            return (
+              <Popup
+               key={book.id}
+              trigger={
+                <Card raised>
+                  <Link to={`/books/${book.id}`}>
+                    <Image fluid size="medium" src={book.coverImage} />
+                  </Link>
+                </Card>
+              }
+              hoverable
+              size="tiny"
+              >
+              <Popup.Header>
+                {book.title}
+              </Popup.Header>
+            </Popup>
             )
           })
         }
-        <Grid.Row>
-          <Grid.Column>
-            <Container>
-              <Link className="mainLink" to="/allGenres" >
-                <Button>Go Back</Button>
-              </Link>
-          </Container>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+        </Card.Group>
+      </Container>
     )
   }
 }
@@ -62,6 +62,7 @@ class singleGenre extends Component {
 
 const mapState = ({selectedGenre, user}, ownProps) => ({selectedGenre, ownProps, user})
 
-const mapDispatch = { fetchGenreByType }
+const mapDispatch = { fetchGenreBooks }
 
-export default connect(mapState, mapDispatch)(singleGenre);
+export default connect(mapState, mapDispatch)(SingleGenre);
+

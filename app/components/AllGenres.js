@@ -1,51 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchGenres } from '../reducers/genres';
-import {Container, Segment} from 'semantic-ui-react';
+import {Grid, Dropdown, Segment} from 'semantic-ui-react';
+import SingleGenre from './SingleGenre';
 
 class allGenres extends Component {
+  constructor() {
+    super()
+    this.state = {
+      value: '',
+      books: {}
+    }
+    this.changeHandler = this.changeHandler.bind(this);
+  }
 
-  componentWillMount () {
+  changeHandler(e, {value}) {
+    this.setState({value});
+  }
+
+  componentDidMount () {
     this.props.fetchGenres(this.props.user.id);
   }
 
-
   render () {
-    let { genres } = this.props;
+    const {filteredGenres} = this.props;
+    const sortedGenres = filteredGenres.sort();
+
     return (
-      <div>
-        {
-          genres.map(genre => {
-            return (
-              <Link to={`/genres/${genre}`} key={genre}>
-                  <Segment color="orange" className="allBooksSeg">
-                    <Container textAlign="center">
-                      {genre}
-                    </Container>
-                  </Segment>
-                </Link>
-              )
-            }
-          )
-        }
-      </div>
+      <Grid>
+        <Grid.Column>
+          <Grid.Row>
+            <Dropdown
+              placeholder="Select Genre"
+              fluid
+              selection
+              options={
+                sortedGenres.map(genre => {
+                  return {
+                    text: genre,
+                    value: genre
+                  }
+                })
+              }
+              onChange={this.changeHandler}
+            />
+          </Grid.Row>
+        <Grid.Row>
+          { this.state.value &&
+            <Segment color="orange">
+              <SingleGenre genreName={this.state.value} />
+            </Segment>
+          }
+        </Grid.Row>
+      </Grid.Column>
+    </Grid>
     )
   }
 }
 
 /* --------------- CONTAINER ----------------------- */
 const mapState = ({genres, user}) => {
-    const genreList = [];
-    const allGenres = genres;
-    allGenres.map(genre => {
-      if (!genreList.includes(genre.category)) {
-        genreList.push(genre.category);
-      }
+  const genresArr = genres.map(genre => genre.category)
+  const filteredGenres = [];
+  genresArr.forEach(genre => {
+    if (!filteredGenres.includes(genre)) {
+      filteredGenres.push(genre)
+    }
   });
-  return { genres: genreList, user}
+  return { filteredGenres: filteredGenres, user}
 }
 
 const mapDispatch = { fetchGenres };
 
 export default connect(mapState, mapDispatch)(allGenres);
+

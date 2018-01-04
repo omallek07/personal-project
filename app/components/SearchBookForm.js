@@ -28,7 +28,7 @@ class SearchBookForm extends Component {
     this.setState({
       query: data.searchQuery
     });
-    this.timer = setTimeout(this.fetchOptions, 500)
+    this.timer = setTimeout(this.fetchOptions, 150)
   }
 
   fetchOptions() {

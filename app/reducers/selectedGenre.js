@@ -1,26 +1,26 @@
 import axios from 'axios';
 
 /* ------------ ACTIONS ------------ */
-const GET_GENRE_BY_TYPE = 'GET_GENRE_BY_TYPE';
+const GET_GENRE_BOOKS = 'GET_GENRE_BOOKS';
 
 
 /* --------- ACTION CREATORS ------------ */
-const getGenreByType = genre => ({ type: GET_GENRE_BY_TYPE, genre})
+const getGenreBooks = books => ({ type: GET_GENRE_BOOKS, books})
 
 
 /* ------------- REDUCER ------------ */
-export default function reducer (genre = {}, action) {
+export default function reducer (books = {}, action) {
   switch (action.type) {
-    case GET_GENRE_BY_TYPE:
-      return action.genre;
+    case GET_GENRE_BOOKS:
+      return action.books;
     default:
-      return genre;
+      return books;
   }
 }
 
 /* ------------- DISPATCHERS ------------ */
-export const fetchGenreByType = (userId, categoryType) => dispatch => {
+export const fetchGenreBooks = (userId, categoryType) => dispatch => {
   axios.get(`/api/singlegenre/${userId}/${categoryType}`)
-  .then(res => dispatch(getGenreByType(res.data)))
+  .then(res => dispatch(getGenreBooks(res.data)))
   .catch(err => console.error('Fetching genre by type unsuccessful', err));
 };

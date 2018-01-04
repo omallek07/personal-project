@@ -66,18 +66,3 @@ const mapDispatch = { fetchAuthorsBooks }
 
 export default connect(mapState, mapDispatch)(SingleAuthor);
 
-// <Card.Group itemsPerRow={4}>
-//         {
-//           selectedAuthor.length && selectedAuthor.map(book => {
-//             return (
-//               <Card key={book.id}>
-//                 <Image src={book.coverImage} />
-//               <Card.Container>
-//                 {book.title}
-//               </Card.Container>
-//               </Card>
-//             )
-//           })
-//         }
-//       </Card.Group>
-
