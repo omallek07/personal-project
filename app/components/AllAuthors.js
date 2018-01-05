@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAuthors } from '../reducers/authors';
-import {Grid, Dropdown, Segment} from 'semantic-ui-react';
+import {Grid, Dropdown, Segment, Header, Container} from 'semantic-ui-react';
 import SingleAuthor from './SingleAuthor';
 
 class allAuthors extends Component {
@@ -27,8 +27,10 @@ class allAuthors extends Component {
     const sortedAuthors = filteredAuthors.sort();
 
     return (
+      <Segment>
       <Grid>
         <Grid.Column>
+          <Header>Search collection by author</Header>
           <Grid.Row>
             <Dropdown
               placeholder="Select Author"
@@ -47,13 +49,14 @@ class allAuthors extends Component {
           </Grid.Row>
         <Grid.Row>
           { this.state.value &&
-            <Segment>
+            <Container>
               <SingleAuthor authorName={this.state.value} />
-            </Segment>
+            </Container>
           }
         </Grid.Row>
         </Grid.Column>
         </Grid>
+      </Segment>
     )
   }
 }

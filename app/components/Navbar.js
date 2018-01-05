@@ -20,13 +20,13 @@ const Navbar = (props) => {
       {
         isLoggedIn
           ? <Menu.Menu position="right">
-            <Menu.Item as={Link} to="/home">Home</Menu.Item>
-            <Menu.Item as={Link} to="/login" onClick={handleClick}>Logout</Menu.Item>
+            <Menu.Item className="navLinks" as={Link} to="/home">Home</Menu.Item>
+            <Menu.Item className="navLinks" as={Link} to="/login" onClick={handleClick}>Logout</Menu.Item>
           </Menu.Menu>
           : <Menu.Menu position="right">
             {/* The navbar will show these links before you log in */}
-            <Menu.Item as={Link} to="/login">Login</Menu.Item>
-            <Menu.Item as={Link} to="/signup">Sign Up</Menu.Item>
+            <Menu.Item className="navLinks" as={Link} to="/login">Login</Menu.Item>
+            <Menu.Item className="navLinks" as={Link} to="/signup">Sign Up</Menu.Item>
           </Menu.Menu>
       }
     </Menu>

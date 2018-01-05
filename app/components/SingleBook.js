@@ -17,31 +17,31 @@ class singleBook extends Component {
     let book = this.props.selectedBook;
     return (
       <Segment>
-        <Grid columns={2} padded divided equal="true" stackable>
+        <Grid columns={2} padded divided stackable>
           <Grid.Row>
             <Grid.Column width={4}>
               <Image size="large" rounded src={book.coverImage} float="left" />
             </Grid.Column>
           <Grid.Column width={12}>
-        <Container className="booktitle">
+        <Container text className="booktitle">
            {book.title}
         </Container>
-        <Container className="authortitle">
+        <Container text className="authortitle">
           {book.author}
         </Container>
-        <Container className="bookdescription">
+        <Container text className="bookdescription">
          {book.description}
         </Container>
-        <Container>
+        <Container text>
           <b>Page Count:</b>{` ${book.pageCount}`}
         </Container>
-        <Container>
+        <Container text>
           <b>Published Date:</b>{` ${book.publishedDate}`}
         </Container>
-        <Container>
+        <Container text>
           <b>Genre:</b>{` ${book.category}`}
         </Container>
-        <Container>
+        <Container text>
           {
             book.rating && <div><b>Rating:</b><Rating icon="star" defaultRating={book.rating} maxRating={5} disabled /></div>
           }

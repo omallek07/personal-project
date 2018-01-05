@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchAuthorsBooks } from '../reducers/selectedAuthor';
-import { Container, Image, Card, Popup } from 'semantic-ui-react';
+import { Container, Segment, Image, Card, Popup, Rating, Icon } from 'semantic-ui-react';
 
 /* -----------    COMPONENT    ----------- */
 
@@ -28,32 +28,37 @@ class SingleAuthor extends Component {
   render () {
     const {selectedAuthor} = this.props;
     return (
-      <Container>
-        <Card.Group itemsPerRow={7}>
-        {
-          selectedAuthor.length && selectedAuthor.map(book => {
-            return (
-              <Popup
-               key={book.id}
-              trigger={
-                <Card raised>
-                  <Link to={`/books/${book.id}`}>
-                    <Image fluid size="medium" src={book.coverImage} />
-                  </Link>
-                </Card>
-              }
-              hoverable
-              size="tiny"
-              >
-              <Popup.Header>
-                {book.title}
-              </Popup.Header>
-            </Popup>
-            )
-          })
-        }
-        </Card.Group>
-      </Container>
+      <Segment className="innersegment">
+        <Container>
+          <Card.Group itemsPerRow={7}>
+          {
+            selectedAuthor.length && selectedAuthor.map(book => {
+              return (
+                <Popup
+                key={book.id}
+                trigger={
+                  <Card raised>
+                    <Link to={`/books/${book.id}`}>
+                      <Image fluid size="medium" src={book.coverImage} />
+                    </Link>
+                  </Card>
+                }
+                hoverable
+                size="tiny"
+                >
+                <Popup.Header>
+                    {book.title}
+                  </Popup.Header>
+                <Popup.Content>
+                  <Rating icon="star" defaultRating={book.rating} maxRating={5} size="small" disabled />
+              </Popup.Content>
+              </Popup>
+              )
+            })
+          }
+          </Card.Group>
+        </Container>
+      </Segment>
     )
   }
 }

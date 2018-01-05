@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchGenres } from '../reducers/genres';
-import {Grid, Dropdown, Segment} from 'semantic-ui-react';
+import {Grid, Header, Dropdown, Segment, Container} from 'semantic-ui-react';
 import SingleGenre from './SingleGenre';
 
 class allGenres extends Component {
@@ -27,33 +27,36 @@ class allGenres extends Component {
     const sortedGenres = filteredGenres.sort();
 
     return (
-      <Grid>
-        <Grid.Column>
+      <Segment>
+        <Grid>
+          <Grid.Column>
+            <Header>Search collections by genre</Header>
+            <Grid.Row>
+              <Dropdown
+                placeholder="Select Genre"
+                fluid
+                selection
+                options={
+                  sortedGenres.map(genre => {
+                    return {
+                      text: genre,
+                      value: genre
+                    }
+                  })
+                }
+                onChange={this.changeHandler}
+              />
+            </Grid.Row>
           <Grid.Row>
-            <Dropdown
-              placeholder="Select Genre"
-              fluid
-              selection
-              options={
-                sortedGenres.map(genre => {
-                  return {
-                    text: genre,
-                    value: genre
-                  }
-                })
-              }
-              onChange={this.changeHandler}
-            />
+            { this.state.value &&
+              <Container>
+                <SingleGenre genreName={this.state.value} />
+              </Container>
+            }
           </Grid.Row>
-        <Grid.Row>
-          { this.state.value &&
-            <Segment>
-              <SingleGenre genreName={this.state.value} />
-            </Segment>
-          }
-        </Grid.Row>
-      </Grid.Column>
-    </Grid>
+        </Grid.Column>
+      </Grid>
+    </Segment>
     )
   }
 }

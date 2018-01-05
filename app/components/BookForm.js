@@ -81,7 +81,7 @@ class BookForm extends Component {
   render () {
     const { errors, data, loading } = this.state;
     return (
-      <Segment className="newbookform">
+      <Segment className="innersegment">
         <Form onSubmit={this.onSubmit} loading={loading}>
           <Grid columns={2} fluid="true" stackable padded>
             <Grid.Row>

@@ -20,39 +20,37 @@ class singleOtherUser extends Component {
   return (
     <Segment>
       <Grid>
+      <Grid.Column>
+       <Header>{`${userName}'s Books`}</Header>
         <Grid.Row>
-          <Container textAlign="center">
-            <Header>{`${userName}'s Collection`}</Header>
-            <br />
-          </Container>
-        </Grid.Row>
-        <Grid.Row>
-          <Container>
-            <Card.Group itemsPerRow={7}>
-            {
-            (books.length > 0) && books.map(book => {
-              return (
-                <Popup
-                      key={book.id}
-                    trigger={
-                      <Card raised>
-                        <Link to={`/books/${book.id}`}>
-                          <Image size="medium" src={book.coverImage} />
-                        </Link>
-                      </Card>
-                    }
-                    hoverable
-                    size="tiny"
-                    >
-                    <Popup.Header>
-                      {book.title}
-                    </Popup.Header>
-                  </Popup>
-                  )
-                })
-              }
-            </Card.Group>
-          </Container>
+          <Segment className="innersegment">
+            <Container>
+              <Card.Group itemsPerRow={7}>
+              {
+              (books.length > 0) && books.map(book => {
+                return (
+                  <Popup
+                        key={book.id}
+                      trigger={
+                        <Card raised>
+                          <Link to={`/books/${book.id}`}>
+                            <Image size="medium" src={book.coverImage} />
+                          </Link>
+                        </Card>
+                      }
+                      hoverable
+                      size="tiny"
+                      >
+                      <Popup.Header>
+                        {book.title}
+                      </Popup.Header>
+                    </Popup>
+                    )
+                  })
+                }
+              </Card.Group>
+            </Container>
+          </Segment>
         </Grid.Row>
         <Grid.Row>
           <Container>
@@ -62,6 +60,7 @@ class singleOtherUser extends Component {
             </Link>
           </Container>
         </Grid.Row>
+        </Grid.Column>
       </Grid>
     </Segment>
     )

@@ -6,7 +6,7 @@ router.get('/:userId/:categoryType', (req, res, next) => {
   Books.findAll({ where: {
     userId: req.params.userId,
     category: req.params.categoryType},
-  attributes: ['title', 'coverImage', 'id']})
+  attributes: ['title', 'coverImage', 'id', 'rating']})
   .then(genre => {
     res.json(genre);
   })

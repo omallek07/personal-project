@@ -6,7 +6,7 @@ router.get('/:userId/:authorName', (req, res, next) => {
   Books.findAll({ where: {
     userId: req.params.userId,
     author: req.params.authorName},
-  attributes: ['title', 'coverImage', 'id']})
+  attributes: ['title', 'coverImage', 'id', 'rating']})
   .then(author => {
     res.json(author);
   })

@@ -17,4 +17,3 @@ export {default as NewBookPage} from './NewBookPage';
 export {default as FunFacts} from './FunFacts';
 export {default as OtherUsers} from './OtherUsers';
 export {default as SingleOtherUser} from './SingleOtherUser';
-export {default as Footer} from './Footer';
