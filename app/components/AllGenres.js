@@ -30,7 +30,7 @@ class allGenres extends Component {
       <Segment>
         <Grid>
           <Grid.Column>
-            <Header>Search collections by genre</Header>
+            <Header>Search collection by genre</Header>
             <Grid.Row>
               <Dropdown
                 placeholder="Select Genre"
