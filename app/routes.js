@@ -10,8 +10,16 @@ import {me, fetchAuthors, fetchGenres, fetchBooks} from './reducers';
  * COMPONENT
  */
 class Routes extends Component {
+
   componentDidMount () {
     this.props.loadInitialData()
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.userId !== nextProps.userId && nextProps.userId !== null) {
+      this.props.loadUserData(nextProps.userId)
+    }
   }
 
   render () {
@@ -59,26 +67,21 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.user that has a truthy id.
     // Otherwise, state.user will be an empty object, and state.user.id will be falsey
     isLoggedIn: !!state.user.id,
-    userId: state.user.id
+    userId: state.user.id || null
   }
 }
 
 const mapDispatch = (dispatch) => {
-  let loadInitialData;
-  if (this.props.isLoggedIn) {
-    const userId = this.props.user.id
-    loadInitialData = () => {
-        dispatch(me())
-        dispatch(fetchGenres(userId))
+  return {
+    loadInitialData: () => {
+      dispatch(me())
+    },
+    loadUserData: (userId) => {
+      dispatch(fetchGenres(userId))
         dispatch(fetchBooks(userId))
         dispatch(fetchAuthors(userId))
     }
-  } else {
-    loadInitialData = () => {
-      dispatch(me())
-    }
   }
-  return loadInitialData();
 }
 
 export default connect(mapState, mapDispatch)(Routes)

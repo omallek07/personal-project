@@ -12,7 +12,6 @@ class allBooks extends Component {
 
   deleteBookHandler (id) {
     this.props.deleteBookDispatcher(id);
-    // this.props.fetchBooks(this.props.user.id);
   }
 
   render () {

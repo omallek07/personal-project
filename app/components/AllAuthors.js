@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAuthors } from '../reducers/authors';
 import {Grid, Dropdown, Segment, Header, Container} from 'semantic-ui-react';
 import SingleAuthor from './SingleAuthor';
 
