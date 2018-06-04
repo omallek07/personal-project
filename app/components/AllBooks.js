@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchBooks, deleteBookDispatcher } from '../reducers/books';
-import { Image, Container, Grid, Segment, Rating, Icon, Card, Popup} from 'semantic-ui-react';
+import { deleteBookDispatcher } from '../reducers/books';
+import { Image, Grid, Segment, Rating, Icon, Card, Popup} from 'semantic-ui-react';
 
 class allBooks extends Component {
   constructor() {
     super()
     this.deleteBookHandler = this.deleteBookHandler.bind(this);
   }
-
-  // componentDidMount () {
-  //   this.props.fetchBooks(this.props.user.id);
-  // }
 
   deleteBookHandler (id) {
     this.props.deleteBookDispatcher(id);
@@ -69,7 +65,7 @@ class allBooks extends Component {
 /* --------------- CONTAINER ----------------------- */
 const mapState = ({books, user}) => ({books, user});
 
-const mapDispatch = { fetchBooks, deleteBookDispatcher }
+const mapDispatch = { deleteBookDispatcher }
 
 export default connect(mapState, mapDispatch)(allBooks);
 

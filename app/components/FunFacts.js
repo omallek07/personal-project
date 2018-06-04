@@ -5,10 +5,6 @@ import {List, Segment, Container} from 'semantic-ui-react';
 
 class FunFacts extends Component {
 
-  componentDidMount () {
-    this.props.fetchBooks(this.props.user.id)
-  }
-
   render () {
     let {books, genres, authors} = this.props;
     let totalPages = 0;
@@ -59,6 +55,4 @@ class FunFacts extends Component {
 /* --------------- CONTAINER ----------------------- */
 const mapState = ({books, user}) => ({books, user, genres: books.map(book => book.category), authors: books.map(book => book.author)})
 
-const mapDispatch = {fetchBooks};
-
-export default connect(mapState, mapDispatch)(FunFacts)
+export default connect(mapState, null)(FunFacts)

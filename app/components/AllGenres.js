@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchGenres } from '../reducers/genres';
 import {Grid, Header, Dropdown, Segment, Container} from 'semantic-ui-react';
 import SingleGenre from './SingleGenre';
 
@@ -17,10 +16,6 @@ class allGenres extends Component {
   changeHandler(e, {value}) {
     this.setState({value});
   }
-
-  // componentDidMount () {
-  //   this.props.fetchGenres(this.props.user.id);
-  // }
 
   render () {
     const {filteredGenres} = this.props;
@@ -73,7 +68,5 @@ const mapState = ({genres, user}) => {
   return { filteredGenres: filteredGenres, user}
 }
 
-const mapDispatch = { fetchGenres };
-
-export default connect(mapState, mapDispatch)(allGenres);
+export default connect(mapState, null)(allGenres);
 

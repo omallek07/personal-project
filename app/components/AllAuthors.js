@@ -18,10 +18,6 @@ class allAuthors extends Component {
     this.setState({value});
   }
 
-  // componentDidMount () {
-  //   this.props.fetchAuthors(this.props.user.id);
-  // }
-
   render () {
     const {filteredAuthors} = this.props;
     const sortedAuthors = filteredAuthors.sort();
@@ -73,7 +69,5 @@ const mapState = ({authors, user}) => {
   return { filteredAuthors: filteredAuthors, user}
 }
 
-const mapDispatch = { fetchAuthors };
-
-export default connect(mapState, mapDispatch)(allAuthors);
+export default connect(mapState, null)(allAuthors);
 
