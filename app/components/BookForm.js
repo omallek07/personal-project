@@ -126,7 +126,7 @@ class BookForm extends Component {
           </Form.Field>
 
           <Form.Field error={!!errors.rating}>
-          <label htmlFor="rating">Rating</label>
+          <label htmlFor="rating">Please Provide Rating</label>
           <Rating
             icon="star"
             defaultRating={3}
