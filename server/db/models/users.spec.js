@@ -36,6 +36,7 @@ describe('User model', () => {
       it('expects public view to be set to false', () => {
         expect(cody.public).to.be.equal(false)
       });
+
     }) // end describe('correctPassword')
   }) // end describe('instanceMethods')
 }) // end describe('User model')
