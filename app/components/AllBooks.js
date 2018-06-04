@@ -10,13 +10,13 @@ class allBooks extends Component {
     this.deleteBookHandler = this.deleteBookHandler.bind(this);
   }
 
-  componentDidMount () {
-    this.props.fetchBooks(this.props.user.id);
-  }
+  // componentDidMount () {
+  //   this.props.fetchBooks(this.props.user.id);
+  // }
 
   deleteBookHandler (id) {
     this.props.deleteBookDispatcher(id);
-    this.props.fetchBooks(this.props.user.id);
+    // this.props.fetchBooks(this.props.user.id);
   }
 
   render () {

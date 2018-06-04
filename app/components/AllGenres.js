@@ -18,9 +18,9 @@ class allGenres extends Component {
     this.setState({value});
   }
 
-  componentDidMount () {
-    this.props.fetchGenres(this.props.user.id);
-  }
+  // componentDidMount () {
+  //   this.props.fetchGenres(this.props.user.id);
+  // }
 
   render () {
     const {filteredGenres} = this.props;

@@ -18,9 +18,9 @@ class allAuthors extends Component {
     this.setState({value});
   }
 
-  componentDidMount () {
-    this.props.fetchAuthors(this.props.user.id);
-  }
+  // componentDidMount () {
+  //   this.props.fetchAuthors(this.props.user.id);
+  // }
 
   render () {
     const {filteredAuthors} = this.props;

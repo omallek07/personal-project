@@ -12,5 +12,8 @@ import userCollections from './userCollections';
 const rootReducer = combineReducers({authors, selectedAuthor, books, selectedBook, genres, selectedGenre, user, search, userCollections});
 
 export default rootReducer;
-export * from './user'
+export * from './user';
+export * from './authors';
+export * from './genres';
+export * from './books';
 
