@@ -2,6 +2,7 @@ body {
   background-color: #D5D5D5;
   font-family: 'vesper libre', serif;
   font-size: 1.1em;
+  margin-top: 5px;
 }
 
 #masterRoot {
@@ -55,11 +56,23 @@ body {
   color: red;
 }
 
-.ui.header.navHead {
-  color: #ffffff!important;
-  font-family: 'pacifico'!important;
-  font-size: 3.5em!important;
-  letter-spacing: 2px!important;
+#title-bar {
+  padding: 0;
+  background-color: #6D7993;
+  font-size: 1em;
+  border: 0;
+}
+
+#title-bar-header {
+  color: #ffffff;
+  font-family: 'pacifico';
+  font-size: 3.5em;
+  letter-spacing: 2px;
+}
+
+#title-bar--navLinks {
+  font-size: 1.2em;
+  color: white;
 }
 
 .ui.medium.image {
@@ -108,12 +121,7 @@ body {
   padding-bottom: 8px!important;
 }
 
-.ui.menu.navbar {
-  padding: 0!important;
-  background-color: #6D7993;
-  font-size: 1em;
-  border: 0;
-}
+
 
 .ui.segment {
   background-color: #adb3b9;
@@ -138,16 +146,20 @@ body {
   padding: 0!important;
 }
 
-.ui.menu a.item.navLinks {
-  font-size: 1.2em;
-  color: white;
-}
 
-.ui.header {
+
+/* .ui.header {
   font-size: 2em!important;
   padding-bottom: 10px!important;
   margin: 3px!important;
   font-family: 'scope one'!important;
+} */
+
+#home-welcomeSign {
+  font-size: 2em;
+  padding-bottom: 10px;
+  margin: 3px;
+  font-family: 'scope one';
 }
 
 .ui.container.booktitle {
@@ -185,3 +197,16 @@ div.stretched.row.cardrow {
 .ui.segment.innersegment {
   background-color: #c9cdd0!important;
 }
+
+@media (max-width: 600px) {
+  #title-bar-header {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 450px) {
+  #title-bar-header {
+    font-size: 1.5em;
+  }
+}
+

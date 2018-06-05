@@ -16,7 +16,7 @@ class BookForm extends Component {
         coverImage: this.props.book.volumeInfo.imageLinks.thumbnail,
         description: this.props.book.volumeInfo.description || this.props.book.searchInfo.textSnippet || null,
         pageCount: this.props.book.volumeInfo.pageCount,
-        category: this.props.book.volumeInfo.categories,
+        category: this.props.book.volumeInfo.categories || 'fiction',
         rating: 3,
         userId: this.props.user
       },
@@ -126,7 +126,7 @@ class BookForm extends Component {
           </Form.Field>
 
           <Form.Field error={!!errors.rating}>
-          <label htmlFor="rating">Please Provide Rating</label>
+          <label htmlFor="rating">Rate How Much You Enjoyed This Book</label>
           <Rating
             icon="star"
             defaultRating={3}

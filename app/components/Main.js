@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {logout} from '../reducers/user'
-import Navbar from './Navbar';
+import Titlebar from './title-bar';
 import Sidebar from './Sidebar';
 //import Footer from './Footer';
 
@@ -21,12 +21,12 @@ const Main = (props) => {
     {
       isLoggedIn
       ? <div>
-          <Navbar />
+          <Titlebar />
           <Sidebar />
           {children}
         </div>
       : <div>
-          <Navbar />
+          <Titlebar />
           {children}
         </div>
     }

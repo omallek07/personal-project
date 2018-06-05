@@ -7,10 +7,10 @@ const Home = (props) => {
   const {user} = props;
   return (
     <Segment>
-      <Grid columns={2} divided>
+      <Grid columns={2} divided stackable>
         <Grid.Column width={4}>
           <Container textAlign="center">
-            <Header>{`Welcome ${user.name}!`}</Header>
+            <Header id="home-welcomeSign">{`Welcome ${user.name}!`}</Header>
               <Image src={user.avatar} centered />
             </Container>
           </Grid.Column>
