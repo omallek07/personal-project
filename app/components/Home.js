@@ -10,19 +10,19 @@ const Home = (props) => {
       <Grid columns={2} divided stackable>
         <Grid.Column width={4}>
           <Container textAlign="center">
-            <Header id="home-welcomeSign">{`Welcome ${user.name}!`}</Header>
-              <Image src={user.avatar} centered />
+            <Header id="home-header">{`Welcome ${user.name}!`}</Header>
+              <Image id="home-img" src={user.avatar} centered />
             </Container>
           </Grid.Column>
         <Grid.Column width={12}>
       <Grid columns={2}>
         <Grid.Row>
           <Grid.Column width={12}>
-            <Header>Start adding new books!</Header>
+            <Header id="home-header">Start adding new books!</Header>
           </Grid.Column>
           <Grid.Column width={4}>
             <Link to="/newBook">
-              <Button size="big" animated fluid link>
+              <Button id="home-button" animated fluid link>
                 <Button.Content visible>Add New Book</Button.Content>
                 <Button.Content hidden>
                   <Icon name="right arrow" />
@@ -33,11 +33,11 @@ const Home = (props) => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={12}>
-            <Header>Check out your friend's lists!</Header>
+            <Header id="home-header">Check out your friend's lists!</Header>
           </Grid.Column>
           <Grid.Column width={4}>
             <Link to="/otherUsers">
-              <Button size="big" animated fluid link>
+              <Button id="home-button" animated fluid link>
                 <Button.Content visible>Friend's Lists</Button.Content>
                 <Button.Content hidden>
                   <Icon name="users" />
@@ -48,11 +48,11 @@ const Home = (props) => {
         </Grid.Row>
         <Grid.Row>
           <Grid.Column width={12}>
-            <Header>View fun facts about your collection!</Header>
+            <Header id="home-header">View fun facts about your collection!</Header>
           </Grid.Column>
           <Grid.Column width={4}>
             <Link to="/funFacts">
-              <Button size="big" fluid animated link>
+              <Button id="home-button" fluid animated link>
                 <Button.Content visible>Fun Facts</Button.Content>
                 <Button.Content hidden>
                   <Icon name="smile" />

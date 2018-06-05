@@ -155,11 +155,15 @@ body {
   font-family: 'scope one'!important;
 } */
 
-#home-welcomeSign {
+#home-header {
   font-size: 2em;
   padding-bottom: 10px;
   margin: 3px;
   font-family: 'scope one';
+}
+
+#home-button {
+  font-size: 16px;
 }
 
 .ui.container.booktitle {
@@ -219,8 +223,16 @@ div.stretched.row.cardrow {
     font-size: 0.8em;
   }
 
-  #home-welcomeSign {
+  #home-header {
     font-size: 1em;
+  }
+
+  #home-button {
+    font-size: 10px;
+  }
+
+  #home-img {
+    width: 100px;
   }
 }
 
