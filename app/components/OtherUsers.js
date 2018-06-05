@@ -22,7 +22,7 @@ class OtherUsers extends Component {
               key={user.id}
               trigger={
               <Card className="collection">
-                <Link className="avatarlink" to={{ pathname: '/singleOtherUser', state: {user} }}>
+                <Link className="avatarlink" to={{ pathname: '/friendsBookList', state: {user} }}>
                   <Image src={user.avatar} size="small" circular centered />
                   <Card.Content textAlign="center">
                     {user.name}

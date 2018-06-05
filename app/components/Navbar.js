@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react'
 
-export default class Sidebar extends Component {
+export default class Navbar extends Component {
   constructor() {
     super()
-    this.state = { activeItem: 'home'}
+    this.state = {
+      activeItem: 'home'
+    }
     this.handleItemClick = this.handleItemClick.bind(this)
   }
 
@@ -15,8 +17,9 @@ export default class Sidebar extends Component {
 
   render () {
     const { activeItem } = this.state;
+
     return (
-      <Menu pointing>
+      <Menu id="navbar" pointing>
         <Link to="/home">
           <Menu.Item name="home" active={activeItem === 'home'} onClick={this.handleItemClick}>
             Home

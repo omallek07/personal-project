@@ -7,9 +7,6 @@ import { Container, Image, Card, Popup, Rating, Segment } from 'semantic-ui-reac
 /* -----------    COMPONENT    ----------- */
 
 class SingleGenre extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount () {
     const genreName = this.props.genreName;

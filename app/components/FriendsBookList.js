@@ -7,7 +7,7 @@ import { Segment, Grid, Image, Container, Button, Popup, Card, Header } from 'se
 
 /* -----------    COMPONENT    ----------- */
 
-class singleOtherUser extends Component {
+class FriendsBookList extends Component {
 
   componentDidMount () {
     const userId = this.props.location.state.user.id;
@@ -73,4 +73,4 @@ const mapState = ({books}, ownProps) => ({books, ownProps})
 
 const mapDispatch = { fetchBooks }
 
-export default connect(mapState, mapDispatch)(singleOtherUser);
+export default connect(mapState, mapDispatch)(FriendsBookList);

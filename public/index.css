@@ -202,11 +202,25 @@ div.stretched.row.cardrow {
   #title-bar-header {
     font-size: 2.5em;
   }
+  #title-bar--navLinks {
+    font-size: 1em;
+  }
+
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 @media (max-width: 450px) {
   #title-bar-header {
     font-size: 1.5em;
+  }
+  #title-bar--navLinks {
+    font-size: .75em;
+    margin: 0 5px;
   }
 }
 

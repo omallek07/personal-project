@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Route, Switch, Router} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import history from './history'
-import {Main, LoginForm, SignupForm, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers, SingleOtherUser} from './components';
+import {Main, LoginForm, SignupForm, Home, AllBooks, AllAuthors, AllGenres, SingleBook, SingleAuthor, SingleGenre, NewBookPage, FunFacts, OtherUsers, FriendsBookList} from './components';
 import {me, fetchAuthors, fetchGenres, fetchBooks} from './reducers';
 
 /**
@@ -43,7 +43,7 @@ class Routes extends Component {
                   <Route path="/allGenres" component={AllGenres} />
                   <Route path="/funFacts" component={FunFacts} />
                   <Route path="/otherUsers" component={OtherUsers} />
-                  <Route path="/singleOtheruser" component={SingleOtherUser} />
+                  <Route path="/friendsBookList" component={FriendsBookList} />
                   <Route exact path="/books/:bookId" component={SingleBook} />
                   <Route exact path="/newBook" component={NewBookPage} />
                   <Route exact path="/authors/:authorName" component={SingleAuthor} />
