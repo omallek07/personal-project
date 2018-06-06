@@ -35,10 +35,10 @@ class FunFacts extends Component {
 
     return (
       {averageRating} &&
-      <Segment className="funfacts">
+      <Segment>
         <Container>
-          <Segment className="innersegment">
-            <List>
+          <Segment id="inner-segment">
+            <List id="fun-fact-descriptions">
               <List.Item icon="book" content={`You've added ${books.length} books to your collection!`} />
               <List.Item icon="sticky note" content={`You have read a total of ${totalPages.toLocaleString('en')} pages.`} />
               <List.Item icon="star" content={`Your average book rating is ${averageRating}.`} />

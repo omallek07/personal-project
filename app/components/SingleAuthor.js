@@ -28,18 +28,17 @@ class SingleAuthor extends Component {
   render () {
     const {selectedAuthor} = this.props;
     return (
-      <Segment className="innersegment">
-        <Container>
-          <Card.Group itemsPerRow={7}>
+      <Segment id="inner-segment">
+        <Container id="inner-container">
           {
             selectedAuthor.length && selectedAuthor.map(book => {
               return (
                 <Popup
                 key={book.id}
                 trigger={
-                  <Card id="sorted-book-img" raised>
+                  <Card id="all-books-card" raised>
                     <Link to={`/books/${book.id}`}>
-                      <Image fluid size="medium" src={book.coverImage} />
+                      <Image id="all-books-card-image" fluid size="medium" src={book.coverImage} />
                     </Link>
                   </Card>
                 }
@@ -56,7 +55,6 @@ class SingleAuthor extends Component {
               )
             })
           }
-          </Card.Group>
         </Container>
       </Segment>
     )

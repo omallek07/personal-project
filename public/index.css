@@ -85,7 +85,7 @@ body {
   min-height: 70vh;
 }
 
-.ui.funfacts {
+#fun-fact-descriptions {
   font-size: 1.6em;
 }
 
@@ -126,6 +126,7 @@ body {
 
 #add-new-book-card {
   max-width: 150px;
+  max-height: 220px;
   min-height: 220px;
   background-color: white;
   margin: 5px;
@@ -145,8 +146,14 @@ body {
   left: 8px!important;
 }
 
-.ui.segment.innersegment {
+#inner-segment {
+  margin-top: 20px;
   background-color: #c9cdd0!important;
+}
+
+#inner-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #navbar #menu-item {
@@ -157,10 +164,18 @@ body {
   max-width: 250px;
 }
 
+#single-book-author {
+  font-size: 1.2em;
+}
+
 #single-book-title {
   font-size: 2em;
   font-weight: bold;
   margin-left: 0;
+}
+
+#single-book-description {
+  width: 100%;
 }
 
 @media (max-width: 1200px) {
@@ -187,6 +202,15 @@ body {
   #single-book-author {
     font-size: 1.2em;
     margin-left: 12px!important;
+  }
+
+  #single-book-description {
+    font-size: 0.8em;
+    margin-left: 12px!important;
+  }
+
+  #fun-fact-descriptions {
+    font-size: 1.2em;
   }
 
 }
@@ -228,8 +252,8 @@ body {
     width: 220px!important;
   }
 
-  #single-book-description {
-    font-size: 0.8em;
+  #fun-fact-descriptions {
+    font-size: 1.0em;
   }
 
 }
