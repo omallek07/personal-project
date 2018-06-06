@@ -19,16 +19,16 @@ class allBooks extends Component {
 
     return (
       <Segment>
-        <Card.Group itemsPerRow={7}>
+        <Card.Group itemsPerRow={7} stackable>
           {
             books.map(book => {
               return (
                 <Popup
                 key={book.id}
                 trigger={
-                  <Card raised>
+                  <Card id="all-books-card" raised>
                     <Link to={`/books/${book.id}`}>
-                      <Image fluid size="medium" src={book.coverImage} />
+                      <Image id="all-books-card-image" fluid size="medium" src={book.coverImage} />
                     </Link>
                   </Card>
                 }
@@ -46,9 +46,9 @@ class allBooks extends Component {
               )
             })
           }
-          <Card className="addCard" raised>
+          <Card id="add-new-book-card" raised>
             <Grid verticalAlign="middle" centered>
-              <Grid.Row className="cardrow" stretched>
+              <Grid.Row id="add-new-book-plus" stretched>
                 <Link to="/newBook">
                   <Icon name="plus" link size="huge" centered />
                 </Link>

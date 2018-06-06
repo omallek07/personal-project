@@ -2,7 +2,7 @@ body {
   background-color: #D5D5D5;
   font-family: 'vesper libre', serif;
   font-size: 1.1em;
-  margin-top: 5px;
+  margin: 15px;
 }
 
 #masterRoot {
@@ -121,8 +121,6 @@ body {
   padding-bottom: 8px!important;
 }
 
-
-
 .ui.segment {
   background-color: #adb3b9;
   font-size: 1.2em;
@@ -146,15 +144,6 @@ body {
   padding: 0!important;
 }
 
-
-
-/* .ui.header {
-  font-size: 2em!important;
-  padding-bottom: 10px!important;
-  margin: 3px!important;
-  font-family: 'scope one'!important;
-} */
-
 #home-header {
   font-size: 2em;
   padding-bottom: 10px;
@@ -166,22 +155,18 @@ body {
   font-size: 16px;
 }
 
-.ui.container.booktitle {
-  font-size: 2em;
+#all-books-card-image {
+  max-width: 150px;
 }
 
-.ui.card.addCard {
-  height: 220px!important;
-  padding: 2px!important;
+#all-books-card {
+  max-width: 150px;
 }
 
-.ui.container.authortitle {
-  font-size: 1.3em;
-  padding-bottom: 0.5em;
-}
-
-.ui.container.bookdescription {
-  padding-bottom: 0.5em;
+#add-new-book-card {
+  height: 220px;
+  padding: 2px;
+  max-width: 150px;
 }
 
 .ui.search.dropdown>input.search {
@@ -190,8 +175,8 @@ body {
   height: 2em;
 }
 
-div.stretched.row.cardrow {
-  padding-top: 4em!important;
+#add-new-book-plus {
+  padding-top: 4em;
 }
 
 .ui.search.dropdown>.text {
@@ -200,6 +185,44 @@ div.stretched.row.cardrow {
 
 .ui.segment.innersegment {
   background-color: #c9cdd0!important;
+}
+
+#navbar #menu-item {
+  height: 100%;
+}
+
+#single-book-img {
+  max-width: 250px;
+}
+
+#single-book-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+@media (max-width: 1200px) {
+  #single-book-img {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #single-book-img {
+    width: 220px!important;
+  }
+
+  #single-book-title {
+    font-size: 1.5em;
+    margin-left: 12px!important;
+  }
+
+  #single-book-author {
+    font-size: 1.2em;
+    margin-left: 12px!important;
+  }
+
 }
 
 @media (max-width: 600px) {
@@ -234,6 +257,15 @@ div.stretched.row.cardrow {
   #home-img {
     width: 100px;
   }
+
+  #add-new-book-card {
+    width: 220px!important;
+  }
+
+  #single-book-description {
+    font-size: 0.8em;
+  }
+
 }
 
 @media (max-width: 450px) {

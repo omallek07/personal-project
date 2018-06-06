@@ -26,7 +26,7 @@ class NewBookPage extends Component {
   render() {
     return (
       <Segment>
-        <Header>Add new book to your collection</Header>
+        <Header style={{paddingBottom: '15px'}}>Add new book to your collection</Header>
         <SearchBookForm onBookSelect={this.onBookSelect} />
 
         {this.state.book && <BookForm submit={this.addBook} book={this.state.book} />}
@@ -37,8 +37,6 @@ class NewBookPage extends Component {
 
  /* --------------- CONTAINER ----------------------- */
 
-const mapState = null;
-
 const mapDispatch = ({addNewBookDispatcher});
 
-export default connect(mapState, mapDispatch)(NewBookPage);
+export default connect(null, mapDispatch)(NewBookPage);
