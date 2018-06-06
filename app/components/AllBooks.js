@@ -27,7 +27,7 @@ class allBooks extends Component {
               trigger={
                 <Card id="all-books-card" raised>
                   <Link to={`/books/${book.id}`}>
-                    <Image id="all-books-card-image" fluid size="medium" src={book.coverImage} />
+                    <Image id="all-books-card-image" size="medium" src={book.coverImage} />
                   </Link>
                 </Card>
               }

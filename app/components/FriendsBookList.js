@@ -23,18 +23,17 @@ class FriendsBookList extends Component {
       <Grid.Column>
        <Header>{`${userName}'s Books`}</Header>
         <Grid.Row>
-          <Segment className="innersegment">
-            <Container>
-              <Card.Group itemsPerRow={7}>
+          <Segment id="inner-segment">
+            <Container id="inner-container">
               {
               (books.length > 0) && books.map(book => {
                 return (
                   <Popup
-                        key={book.id}
+                      key={book.id}
                       trigger={
-                        <Card raised>
+                        <Card id="all-books-card" raised>
                           <Link to={`/books/${book.id}`}>
-                            <Image size="medium" src={book.coverImage} />
+                            <Image id="all-books-card-image" size="medium" src={book.coverImage} />
                           </Link>
                         </Card>
                       }
@@ -48,7 +47,6 @@ class FriendsBookList extends Component {
                     )
                   })
                 }
-              </Card.Group>
             </Container>
           </Segment>
         </Grid.Row>
@@ -69,7 +67,7 @@ class FriendsBookList extends Component {
 
 /* -------------- CONTAINER ------------------- */
 
-const mapState = ({books}, ownProps) => ({books, ownProps})
+const mapState = ({books}) => ({books})
 
 const mapDispatch = { fetchBooks }
 
