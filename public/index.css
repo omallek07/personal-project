@@ -5,49 +5,6 @@ body {
   margin: 15px;
 }
 
-#masterRoot {
-  display: flex;
-  flex-direction: column;
-}
-
-#mainRoot {
-  display: flex;
-  flex-direction: row;
-}
-
-.mainDiv {
-  width: 100vw;
-  background-color: lightgray;
-}
-
-.AllBooksDiv {
-  background-color: lightgray;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.bookDiv {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
-
-.logDiv {
-  width: 50vw;
-  padding: 10px;
-}
-
-.logDiv h1 {
-  text-align: center;
-}
-
-#homeDiv {
-  width: 75vw;
-  padding: 10px;
-}
-
 .allBooksSeg:hover {
   background-color: rgb(240, 240, 240);
 }
@@ -211,6 +168,10 @@ body {
 @media (max-width: 767px) {
   #single-book-img {
     width: 220px!important;
+  }
+
+  #sorted-book-img {
+    min-width: 220px;
   }
 
   #single-book-title {

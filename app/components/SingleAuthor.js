@@ -37,7 +37,7 @@ class SingleAuthor extends Component {
                 <Popup
                 key={book.id}
                 trigger={
-                  <Card raised>
+                  <Card id="sorted-book-img" raised>
                     <Link to={`/books/${book.id}`}>
                       <Image fluid size="medium" src={book.coverImage} />
                     </Link>
