@@ -20,6 +20,11 @@ body {
   border: 0;
 }
 
+#all-books-segment {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #title-bar-header {
   color: #ffffff;
   font-family: 'pacifico';
@@ -56,10 +61,6 @@ body {
 
 .ui.search {
   font-size: 1.5em;
-}
-
-.ui.seven.cards>.card {
-  background-color:white;
 }
 
 .ui.card {
@@ -118,12 +119,16 @@ body {
 
 #all-books-card {
   max-width: 150px;
+  max-height: 220px;
+  background-color: white;
+  margin: 5px;
 }
 
 #add-new-book-card {
-  height: 220px;
-  padding: 2px;
   max-width: 150px;
+  min-height: 220px;
+  background-color: white;
+  margin: 5px;
 }
 
 .ui.search.dropdown>input.search {
