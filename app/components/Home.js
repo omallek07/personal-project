@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Grid, Button, Header, Image, Segment, Container, Icon } from 'semantic-ui-react';
 
-const Home = (props) => {
+export const Home = (props) => {
   const {user} = props;
   return (
     <Segment>

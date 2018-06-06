@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/start.js",
     "start-dev": "webpack -w & nodemon server/start.js",
-    "test": "NODE_ENV='test' mocha ./server/**/*.spec.js ./server/**/**/*.spec.js ./app/**/**/*.spec.js ./app/**/*.spec.js"
+    "test": "NODE_ENV='test' mocha ./server/**/*.spec.js ./server/**/**/*.spec.js ./app/**/**/*.spec.js ./app/**/*.spec.js --compilers js:babel-register --require babel-polyfill"
   },
   "author": "Kevin O'Malley",
   "license": "ISC",
@@ -44,10 +44,15 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "mocha": "^5.2.0",
     "style-loader": "^0.19.0",
     "supertest": "^3.1.0",
