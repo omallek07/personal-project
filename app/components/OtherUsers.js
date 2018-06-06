@@ -13,16 +13,15 @@ class OtherUsers extends Component {
   render () {
     const users = this.props.userCollections;
     return (
-      <Segment>
-      <Card.Group itemsPerRow={6}>
+      <Segment id="inner-container">
         {
           users.map(user => {
             return (
               <Popup
               key={user.id}
               trigger={
-              <Card className="collection">
-                <Link className="avatarlink" to={{ pathname: '/singleOtherUser', state: {user} }}>
+              <Card id="all-books-card">
+                <Link id="avatar-link" to={{ pathname: '/friendsBookList', state: {user} }}>
                   <Image src={user.avatar} size="small" circular centered />
                   <Card.Content textAlign="center">
                     {user.name}
@@ -42,7 +41,6 @@ class OtherUsers extends Component {
             )
           })
         }
-      </Card.Group>
     </Segment>
     )
   }

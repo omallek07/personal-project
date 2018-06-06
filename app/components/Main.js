@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {logout} from '../reducers/user'
+import Titlebar from './Titlebar';
 import Navbar from './Navbar';
-import Sidebar from './Sidebar';
 //import Footer from './Footer';
 
 /**
@@ -17,16 +17,16 @@ const Main = (props) => {
   const {children, isLoggedIn} = props
 
   return (
-    <div className="ui container">
+    <div>
     {
       isLoggedIn
       ? <div>
+          <Titlebar />
           <Navbar />
-          <Sidebar />
           {children}
         </div>
       : <div>
-          <Navbar />
+          <Titlebar />
           {children}
         </div>
     }

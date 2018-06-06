@@ -7,9 +7,6 @@ import { Container, Image, Card, Popup, Rating, Segment } from 'semantic-ui-reac
 /* -----------    COMPONENT    ----------- */
 
 class SingleGenre extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount () {
     const genreName = this.props.genreName;
@@ -28,18 +25,17 @@ class SingleGenre extends Component {
   render () {
     const {selectedGenre} = this.props;
     return (
-      <Segment className="innersegment">
-        <Container>
-          <Card.Group itemsPerRow={7}>
+      <Segment id="inner-segment">
+        <Container id="inner-container">
           {
             selectedGenre.length && selectedGenre.map(book => {
               return (
                 <Popup
                 key={book.id}
                 trigger={
-                  <Card raised>
+                  <Card id="all-books-card" raised>
                     <Link to={`/books/${book.id}`}>
-                      <Image fluid size="medium" src={book.coverImage} />
+                      <Image id="all-books-card-image" fluid size="medium" src={book.coverImage} />
                     </Link>
                   </Card>
                 }
@@ -56,7 +52,6 @@ class SingleGenre extends Component {
               )
             })
           }
-          </Card.Group>
         </Container>
       </Segment>
     )

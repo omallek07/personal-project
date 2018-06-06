@@ -20,7 +20,10 @@ const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isEmail: true
+    }
   },
   public: {
     type: Sequelize.BOOLEAN,
@@ -72,15 +75,3 @@ const setSaltAndPassword = user => {
 
 User.beforeCreate(setSaltAndPassword)
 User.beforeUpdate(setSaltAndPassword)
-
-// name: {
-//   type: Sequelize.STRING,
-//   unique: true,
-//   allowNull: false,
-//   validate: {
-//     len: {
-//       args: [1, 25],
-//       msg: 'Name must be between 1 and 25 characters!'
-//     }
-//   }
-// },

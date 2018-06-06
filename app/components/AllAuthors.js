@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAuthors } from '../reducers/authors';
 import {Grid, Dropdown, Segment, Header, Container} from 'semantic-ui-react';
 import SingleAuthor from './SingleAuthor';
 
@@ -16,10 +15,6 @@ class allAuthors extends Component {
 
   changeHandler(e, {value}) {
     this.setState({value});
-  }
-
-  componentDidMount () {
-    this.props.fetchAuthors(this.props.user.id);
   }
 
   render () {
@@ -73,7 +68,5 @@ const mapState = ({authors, user}) => {
   return { filteredAuthors: filteredAuthors, user}
 }
 
-const mapDispatch = { fetchAuthors };
-
-export default connect(mapState, mapDispatch)(allAuthors);
+export default connect(mapState, null)(allAuthors);
 

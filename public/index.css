@@ -2,49 +2,7 @@ body {
   background-color: #D5D5D5;
   font-family: 'vesper libre', serif;
   font-size: 1.1em;
-}
-
-#masterRoot {
-  display: flex;
-  flex-direction: column;
-}
-
-#mainRoot {
-  display: flex;
-  flex-direction: row;
-}
-
-.mainDiv {
-  width: 100vw;
-  background-color: lightgray;
-}
-
-.AllBooksDiv {
-  background-color: lightgray;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.bookDiv {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-}
-
-.logDiv {
-  width: 50vw;
-  padding: 10px;
-}
-
-.logDiv h1 {
-  text-align: center;
-}
-
-#homeDiv {
-  width: 75vw;
-  padding: 10px;
+  margin: 15px;
 }
 
 .allBooksSeg:hover {
@@ -55,11 +13,28 @@ body {
   color: red;
 }
 
-.ui.header.navHead {
-  color: #ffffff!important;
-  font-family: 'pacifico'!important;
-  font-size: 3.5em!important;
-  letter-spacing: 2px!important;
+#title-bar {
+  padding: 0;
+  background-color: #6D7993;
+  font-size: 1em;
+  border: 0;
+}
+
+#all-books-segment {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#title-bar-header {
+  color: #ffffff;
+  font-family: 'pacifico';
+  font-size: 3.5em;
+  letter-spacing: 2px;
+}
+
+#title-bar--navLinks {
+  font-size: 1.2em;
+  color: white;
 }
 
 .ui.medium.image {
@@ -88,10 +63,6 @@ body {
   font-size: 1.5em;
 }
 
-.ui.seven.cards>.card {
-  background-color:white;
-}
-
 .ui.card {
   background-color: #96858F;
 }
@@ -104,15 +75,8 @@ body {
   padding: 12px!important;
 }
 
-.ui.card a.avatarlink img {
+#avatar-link img {
   padding-bottom: 8px!important;
-}
-
-.ui.menu.navbar {
-  padding: 0!important;
-  background-color: #6D7993;
-  font-size: 1em;
-  border: 0;
 }
 
 .ui.segment {
@@ -121,7 +85,7 @@ body {
   min-height: 70vh;
 }
 
-.ui.funfacts {
+#fun-fact-descriptions {
   font-size: 1.6em;
 }
 
@@ -138,34 +102,34 @@ body {
   padding: 0!important;
 }
 
-.ui.menu a.item.navLinks {
-  font-size: 1.2em;
-  color: white;
-}
-
-.ui.header {
-  font-size: 2em!important;
-  padding-bottom: 10px!important;
-  margin: 3px!important;
-  font-family: 'scope one'!important;
-}
-
-.ui.container.booktitle {
+#home-header {
   font-size: 2em;
+  padding-bottom: 10px;
+  margin: 3px;
+  font-family: 'scope one';
 }
 
-.ui.card.addCard {
-  height: 220px!important;
-  padding: 2px!important;
+#home-button {
+  font-size: 16px;
 }
 
-.ui.container.authortitle {
-  font-size: 1.3em;
-  padding-bottom: 0.5em;
+#all-books-card-image {
+  max-width: 150px;
 }
 
-.ui.container.bookdescription {
-  padding-bottom: 0.5em;
+#all-books-card {
+  max-width: 150px;
+  max-height: 220px;
+  background-color: white;
+  margin: 5px;
+}
+
+#add-new-book-card {
+  max-width: 150px;
+  max-height: 220px;
+  min-height: 220px;
+  background-color: white;
+  margin: 5px;
 }
 
 .ui.search.dropdown>input.search {
@@ -174,14 +138,133 @@ body {
   height: 2em;
 }
 
-div.stretched.row.cardrow {
-  padding-top: 4em!important;
+#add-new-book-plus {
+  padding-top: 4em;
 }
 
 .ui.search.dropdown>.text {
   left: 8px!important;
 }
 
-.ui.segment.innersegment {
+#inner-segment {
+  margin-top: 20px;
   background-color: #c9cdd0!important;
 }
+
+#inner-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#navbar #menu-item {
+  height: 100%;
+}
+
+#single-book-img {
+  max-width: 250px;
+}
+
+#single-book-author {
+  font-size: 1.2em;
+}
+
+#single-book-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+#single-book-description {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  #single-book-img {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #single-book-img {
+    width: 220px!important;
+  }
+
+  #sorted-book-img {
+    min-width: 220px;
+  }
+
+  #single-book-title {
+    font-size: 1.5em;
+    margin-left: 12px!important;
+  }
+
+  #single-book-author {
+    font-size: 1.2em;
+    margin-left: 12px!important;
+  }
+
+  #single-book-description {
+    font-size: 0.8em;
+    margin-left: 12px!important;
+  }
+
+  #fun-fact-descriptions {
+    font-size: 1.2em;
+  }
+
+}
+
+@media (max-width: 600px) {
+  #title-bar-header {
+    font-size: 2.5em;
+  }
+  #title-bar--navLinks {
+    font-size: 1em;
+  }
+
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #navbar #menu-item {
+    justify-content: center;
+    margin: 0;
+    padding-bottom: 6px;
+    font-size: 0.8em;
+  }
+
+  #home-header {
+    font-size: 1em;
+  }
+
+  #home-button {
+    font-size: 10px;
+  }
+
+  #home-img {
+    width: 100px;
+  }
+
+  #add-new-book-card {
+    width: 220px!important;
+  }
+
+  #fun-fact-descriptions {
+    font-size: 1.0em;
+  }
+
+}
+
+@media (max-width: 450px) {
+  #title-bar-header {
+    font-size: 1.5em;
+  }
+  #title-bar--navLinks {
+    font-size: .8em;
+    margin: 0 5px;
+  }
+}
+
