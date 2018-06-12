@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server/start.js",
     "start-dev": "webpack -w & nodemon server/start.js",
+    "deploy": "script/deploy",
+    "seed": "node script/seed.js",
     "test": "NODE_ENV='test' mocha ./server/**/*.spec.js ./server/**/**/*.spec.js ./app/**/**/*.spec.js ./app/**/*.spec.js --compilers js:babel-register --require babel-polyfill"
   },
   "author": "Kevin O'Malley",
